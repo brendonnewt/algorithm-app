@@ -1,1 +1,13 @@
+body {
+    font-family: 'Metrophobic', sans-serif; 
+}
 
+.pageHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  background-color: #1c1c28;
+  color: #f7f7f7;
+  border-bottom: 1px solid #e9ecef;
+}

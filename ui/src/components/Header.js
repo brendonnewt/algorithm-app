@@ -1,7 +1,7 @@
-const Header = () => {
+const Header = ({text}) => {
     return (
-        <header>
-        <h1>My React App</h1>
+        <header className='pageHeader'>
+        <h1>{text}</h1>
         </header>
     );
 }
