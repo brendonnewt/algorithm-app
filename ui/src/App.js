@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-route
 import HomePage from './pages/HomePage';
 import './assets/styles/App.css';
 import Header from './components/Header';
+import Nav from './components/Nav';
 
 function Main() {
   const location = useLocation();
@@ -23,6 +24,7 @@ function Main() {
   return (
     <>
       <Header text={headerText}/>
+      <Nav />
       <Routes>
         <Route path="/" element={<HomePage />} />
         {/* Add more routes as needed */}
