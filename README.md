@@ -8,8 +8,6 @@ This project is designed to walk through some simple algorithms in Rust, and to 
 
 The plan is to implement many popular algorithms and eventually provide a UI that can be used to run the algorithms on desired inputs to observe and study the output.
 
-### Note: Only the some of the algorithms implemented will make it to the UI, many more will have implementations with documentation in the source code
-
 ## Documentation
 
 To view the full documentation for this project, including **time complexities** and other helpful notes about the algorithms:
