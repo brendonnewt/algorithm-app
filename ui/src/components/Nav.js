@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import buttonIcon from '../assets/images/nav-button-icon.png';
+import closeIcon from '../assets/images/close-nav-icon.png';
 import DropMenu from './DropMenu';
+import '../assets/styles/Nav.css';
 
 /**
  * `DropMenu` is a functional component that returns a dropdown menu.
@@ -18,8 +20,12 @@ const Nav = () => {
 
     return (
     <nav className='nav'>
-        <button type='button' className='navButton' onClick={toggleMenu}>
-            <img src={buttonIcon} alt='Navigation Button Icon' />
+        <button type='button'
+        className={`navButton ${isMenuOpen ? 'menu-open' : 'menu-closed'}`}
+        onClick={toggleMenu}
+        >
+            {isMenuOpen ? <img className="close" src={closeIcon} alt='Navigation Close Button Icon' />
+            : <img className="open" src={buttonIcon} alt='Navigation Open Button Icon' />}
         </button>
         {isMenuOpen && <DropMenu />}
     </nav>
