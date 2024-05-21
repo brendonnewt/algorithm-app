@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import '../assets/styles/DropMenu.css';
 
 /**
  * `DropMenu` is a functional component that returns a dropdown menu.
@@ -7,7 +8,7 @@ import React, {useState} from 'react';
  *
  * @returns {JSX.Element} A dropdown menu component.
  */
-const DropMenu = () => {
+const DropMenu = ({isOpen}) => {
     const [isSortingOpen, setIsSortingOpen] = useState(false);
     const [isGraphOpen, setIsGraphOpen] = useState(false);
 
@@ -20,30 +21,24 @@ const DropMenu = () => {
     }
 
     return (
-        <div className="drop-menu">
+        <div className={`drop-menu ${isOpen ? 'open' : ''}`}>
             <ul>
                 <li>
-                    <a href="/">Home</a>
+                    <a className="homeLink" href="/">Home</a>
                 </li>
                 <li>
-                    <a href="/sorting">Sorting Algorithms</a>
-                    <button className="drop-button" onClick={toggleSorting}>+</button>
-                    {isSortingOpen &&
-                        <ul className="drop-menu-sub">
-                            <li><a href="/sorting/bubble">Bubble Sort</a></li>
-                            <li><a href="/sorting/quick">Quick Sort</a></li>
-                        </ul>
-                    }
+                    <button onClick={toggleSorting}>Sorting Algorithms</button>
+                    <ul className={`drop-menu-sub ${isSortingOpen ? 'open' : ''}`}>
+                        <li><a href="/sorting/bubble">Bubble Sort</a></li>
+                        <li><a href="/sorting/quick">Quick Sort</a></li>
+                    </ul>
                 </li>
                 <li>
-                    <a href="/graph">Graph Algorithms</a>
-                    <button className="drop-button" onClick={toggleGraph}>+</button>
-                    {isGraphOpen && 
-                        <ul className="drop-menu-sub">
-                            <li><a href="/graph/dijkstra">Dijkstra's Algorithm</a></li>
-                            <li><a href="/graph/kruskal">Kruskal's Algorithm</a></li>
-                        </ul>
-                    }
+                    <button onClick={toggleGraph}>Graphing Algorithms</button>
+                    <ul className={`drop-menu-sub ${isGraphOpen ? 'open' : ''}`}>
+                        <li><a href="/graph/dijkstra">Dijkstra's Algorithm</a></li>
+                        <li><a href="/graph/kruskal">Kruskal's Algorithm</a></li>
+                    </ul>
                 </li>
             </ul>
         </div>

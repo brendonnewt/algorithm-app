@@ -27,7 +27,7 @@ const Nav = () => {
             {isMenuOpen ? <img className="close" src={closeIcon} alt='Navigation Close Button Icon' />
             : <img className="open" src={buttonIcon} alt='Navigation Open Button Icon' />}
         </button>
-        {isMenuOpen && <DropMenu />}
+        <DropMenu isOpen={isMenuOpen}/>
     </nav>
     );
 }

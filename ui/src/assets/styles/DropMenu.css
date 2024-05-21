@@ -1,0 +1,110 @@
+.drop-menu {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 300px;
+    background-color: #1c1c28;
+    padding: 0;
+    max-height: 0;
+    box-sizing: border-box;
+    overflow: hidden; /* Ensure content doesn't overflow during animation */
+    max-height: 0; /* Initial state: hidden */
+    transition: max-height 0.3s ease-out, border 0s 0.5s; /* Transition effect */
+}
+
+.drop-menu.open {
+    max-height: 500px; /* Final state: visible (adjust height as needed) */
+    transition: max-height 0.3s ease-in; /* Transition effect */
+}
+
+.drop-menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.drop-menu ul li {
+    margin: 0;
+    padding: 0;
+    border-bottom: 1px solid #3b3b56;
+    box-sizing: border-box;
+}
+
+.drop-menu a,
+.drop-menu button {
+    display: block;
+    width: 100%;
+    height: 3em;
+    text-decoration: none;
+    color: #f7f7f7;
+    padding: 0 1rem;
+    line-height: 3em;
+    background-color: transparent;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.homeLink {
+    font-weight: bold;
+}
+
+.drop-menu button {
+    font-weight: bold;
+    height: 3.5em;
+}
+
+.drop-menu a:hover,
+.drop-menu button:hover {
+    background-color: #3b3b56;
+}
+
+.drop-menu ul li:last-child {
+    border-bottom: none;
+}
+
+.drop-menu-sub {
+    width: 300px;
+    background-color: #3b3b56;
+    padding: 0;
+    max-height: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.3s ease-out, border 0s 0.5s;
+}
+
+.drop-menu-sub.open {
+    max-height: 500px;
+    transition: max-height 0.3s ease-in;
+}
+
+.drop-menu-sub ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+}
+
+.drop-menu-sub ul:last-child {
+    border-bottom: none;
+}
+
+.drop-menu-sub li {
+    width: 100%;
+    font-size: small;
+    border-bottom: 0.5px solid #1c1c28;
+}
+
+.drop-menu-sub ul:last-child {
+    border-bottom: none;
+}
+
+.drop-menu-sub li a:hover {
+    background-color: #1c1c28;
+}
