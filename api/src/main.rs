@@ -1,6 +1,7 @@
 mod sorting;
 mod structs;
 
+use actix_cors::Cors;
 use actix_web::{web, App, HttpServer};
 use sorting::get_output;
 use structs::SortingInput;
@@ -46,7 +47,9 @@ async fn path_handler(
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
     HttpServer::new(|| {
+        let cors = Cors::permissive();
         App::new()
+            .wrap(cors)
             .route("/api/algorithm/sort", web::post().to(sort_handler))
             .route("/api/algorithm/path", web::post().to(path_handler))
     })

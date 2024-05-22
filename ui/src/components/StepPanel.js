@@ -1,12 +1,11 @@
-import React, {useState} from "react";
-
 import "../assets/styles/StepPanel.css";
 
 const StepPanel = (props) => {
-    const {currentStep} = props;
+    const {currentCycle, currentStep} = props;
     return (
         <div className="stepPanel">
-            <h1>Step Panel</h1>
+            <h1>Step {currentCycle}</h1>
+            <p>{currentStep}</p>
         </div>
     );
 }

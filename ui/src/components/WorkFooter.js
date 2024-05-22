@@ -1,7 +1,9 @@
-const WorkFooter = () => {
+const WorkFooter = (props) => {
+    const {prevStep, nextStep} = props;
     return (
         <footer className="algorithmFooter">
-        <p>Work Footer</p>
+            <button className="prevBtn" onClick={prevStep}>Prev</button>
+            <button className="nextBtn" onClick={nextStep}>Next</button>
         </footer>
     );
 }
