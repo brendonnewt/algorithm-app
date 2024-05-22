@@ -1,0 +1,9 @@
+const StepPanel = () => {
+    return (
+        <div>
+            <h1>StepPanel</h1>
+        </div>
+    )
+}
+
+export default StepPanel

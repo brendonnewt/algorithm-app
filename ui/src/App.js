@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 import HomePage from './pages/HomePage';
+import BubbleSort from './pages/BubbleSort';
 import './assets/styles/App.css';
 import Header from './components/Header';
 import Nav from './components/Nav';
@@ -13,9 +14,9 @@ function Main() {
     case '/':
       headerText = 'CSI 3344 Crash Course';
       break;
-    case '/about':
-      headerText = 'About';
-      break;
+      case '/sorting/bubble':
+        headerText = 'Bubble Sort';
+        break;
     // Add more cases as needed for other routes
     default:
       headerText = '';
@@ -27,7 +28,8 @@ function Main() {
       <Nav />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        {/* Add more routes as needed */}
+        <Route path="/sorting/bubble" element={<BubbleSort />} />
+        {/* Add more routes as needed for other pages */}
       </Routes>
     </>
   );
