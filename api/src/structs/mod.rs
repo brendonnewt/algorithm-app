@@ -20,7 +20,7 @@ pub struct SortingInput {
 #[derive(Deserialize, Serialize)]
 pub struct SortingOutput {
     pub sort: String,
-    pub steps: Vec<Step>,
+    pub cycles: Vec<Cycle>,
 }
 
 /***
@@ -81,7 +81,23 @@ pub struct ArrayElement {
     pub selected: bool,
 }
 
+/***
+ * Desc: Object that represents a cycle in the sorting algorithm.
+ * Fields:
+ * - elements: Vec<ArrayElement>
+ */
+#[derive(Deserialize, Serialize)]
+pub struct Cycle {
+    pub steps: Vec<Step>,
+}
+
+/***
+ * Desc: Object that represents a step in the cycle in the sorting algorithm.
+ * Fields:
+ * - elements: Vec<ArrayElement>
+ */
 #[derive(Deserialize, Serialize)]
 pub struct Step {
-    pub swapped: Vec<(usize, usize)>,
+    pub swapped: bool,
+    pub compared: Vec<(usize, usize)>,
 }

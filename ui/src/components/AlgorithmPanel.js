@@ -27,8 +27,8 @@ const AlgorithmPanel = (props) => {
         })
         .then(response => response.json())
         .then(data => {
-            console.log(data);
             setCycles(data);
+            console.log(cycles);
         })
         .catch(error => console.error(error));
     }

@@ -7,7 +7,7 @@ const WorkPanel = (props) => {
     return (
         <div className="workPanel">
             <h1>Work Panel</h1>
-            <WorkFooter />
+            <WorkFooter prevStep={prevStep} nextStep={nextStep}/>
         </div>
     );
 }
