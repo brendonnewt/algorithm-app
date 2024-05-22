@@ -14,7 +14,7 @@ function Main() {
     case '/':
       headerText = 'CSI 3344 Crash Course';
       break;
-      case '/sorting/bubble':
+      case '/sorting/bubblesort':
         headerText = 'Bubble Sort';
         break;
     // Add more cases as needed for other routes
@@ -23,15 +23,15 @@ function Main() {
   }
 
   return (
-    <>
+    <div className='app'>
       <Header text={headerText}/>
       <Nav />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/sorting/bubble" element={<BubbleSort />} />
+        <Route path="/sorting/bubblesort" element={<BubbleSort />} />
         {/* Add more routes as needed for other pages */}
       </Routes>
-    </>
+    </div>
   );
 }
 

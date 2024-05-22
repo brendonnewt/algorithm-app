@@ -1,7 +1,12 @@
+import AlgorithmPanel from "../components/AlgorithmPanel";
+import AlgorithmSection from "../components/AlgorithmSection";
+import '../assets/styles/MainPanel.css';
+
 const BubbleSort = () => {
     return (
-        <div>
-        <h1>Bubble Sort</h1>
+        <div className="mainPanel">
+            <AlgorithmPanel />
+            <AlgorithmSection />
         </div>
     );
 }

@@ -1,5 +1,20 @@
+html, body, .app {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 body {
     font-family: 'Metrophobic', sans-serif; 
+}
+
+#root, .app {
+  height: 100%;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
 }
 
 .pageHeader {

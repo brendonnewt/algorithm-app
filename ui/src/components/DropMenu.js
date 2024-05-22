@@ -29,8 +29,8 @@ const DropMenu = ({isOpen}) => {
                 <li>
                     <button onClick={toggleSorting}>Sorting Algorithms</button>
                     <ul className={`drop-menu-sub ${isSortingOpen ? 'open' : ''}`}>
-                        <li><a href="/sorting/bubble">Bubble Sort</a></li>
-                        <li><a href="/sorting/quick">Quick Sort</a></li>
+                        <li><a href="/sorting/bubblesort">Bubble Sort</a></li>
+                        <li><a href="/sorting/quicksort">Quick Sort</a></li>
                     </ul>
                 </li>
                 <li>
