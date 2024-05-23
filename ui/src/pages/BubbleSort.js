@@ -36,6 +36,8 @@ const BubbleSort = () => {
             cycles={cycles}
             currentStep={currentStep}
             setCycles={setCycles}
+            setCurrentCycle={setCurrentCycle}
+            setCurrentStep={setCurrentStep}
             />
             <AlgorithmSection 
             cycles={cycles}

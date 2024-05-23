@@ -1,15 +1,18 @@
-import React, { useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import AlgorithmFooter from "./AlgorithmFooter";
+import GetArrayInput from './GetArrayInput';
 import '../assets/styles/AlgorithmPanel.css';
 
 const AlgorithmPanel = (props) => {
-    const {cycles, currentStep, setCycles} = props;
+    const {cycles, currentStep, setCycles, setCurrentCycle, setCurrentStep} = props;
+    const [inputArr, setInputArr] = useState([]);
+    const [isInputting, setIsInputting] = useState(true);
 
     const fetchCycles = () => {
         const body = {
             sort: "BubbleSort",
-            arr: [5, 4, 3, 2, 1],
+            arr: inputArr,
         };
 
         fetch('http://localhost:8080/api/algorithm/sort', {
@@ -32,13 +35,25 @@ const AlgorithmPanel = (props) => {
     }
 
     useEffect(() => {
-        fetchCycles();
-    }, []);
+        console.log(cycles);
+    }, [cycles])
 
     return (
         <div className="algorithmPanel">
+            {isInputting ?
+            <GetArrayInput 
+            inputArr={inputArr}
+            setInputArr={setInputArr}
+            fetchCycles={fetchCycles}
+            setIsInputting={setIsInputting}/>
+            : null}
             <h1>Algorithm Panel</h1>
-            <AlgorithmFooter />
+            <AlgorithmFooter 
+            setCurrentCycle={setCurrentCycle}
+            setCurrentStep={setCurrentStep}
+            setCycles={setCycles}
+            setIsInputting={setIsInputting}
+            />
         </div>
     )
 }
