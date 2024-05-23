@@ -23,7 +23,7 @@ pub fn bubble_sort(input: SortingInput) -> SortingOutput {
                 });
             }
         }
-        cycles.push(Cycle { steps: steps });
+        cycles.push(Cycle { cycle: steps });
         if !swapped {
             break;
         }

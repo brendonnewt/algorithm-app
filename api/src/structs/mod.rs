@@ -71,24 +71,13 @@ impl SortType {
 }
 
 /***
- * Desc: Object that represents an element in an array. Needs to know its value,
- * position, and whether it is selected.
- */
-#[derive(Deserialize, Serialize)]
-pub struct ArrayElement {
-    pub value: i32,
-    pub position: i32,
-    pub selected: bool,
-}
-
-/***
  * Desc: Object that represents a cycle in the sorting algorithm.
  * Fields:
  * - elements: Vec<ArrayElement>
  */
 #[derive(Deserialize, Serialize)]
 pub struct Cycle {
-    pub steps: Vec<Step>,
+    pub cycle: Vec<Step>,
 }
 
 /***

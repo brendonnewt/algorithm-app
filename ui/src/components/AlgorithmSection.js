@@ -4,10 +4,10 @@ import WorkPanel from './WorkPanel';
 import '../assets/styles/AlgorithmSection.css';
 
 const AlgorithmSection = (props) => {
-    const {cycles, currentCycle, currentStep, nextStep, prevStep} = props;
+    const {cycles, currentCycle, currentStep, nextStep, prevStep, stepString} = props;
     return (
         <div className="algorithmSection">
-            <StepPanel currentCycle={currentCycle} currentStep={currentStep}/>
+            <StepPanel currentCycle={currentCycle} stepString={stepString}/>
             <WorkPanel 
             cycles={cycles}
             currentStep={currentStep}

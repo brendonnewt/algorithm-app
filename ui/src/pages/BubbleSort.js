@@ -7,6 +7,7 @@ const BubbleSort = () => {
     const [cycles, setCycles] = useState([]);
     const [currentCycle, setCurrentCycle] = useState(0);
     const [currentStep, setCurrentStep] = useState(0);
+    const stepString = "Compare elements at index i and i+1. If element at i is greater than element at i+1, swap them. Repeat this process for all elements in the array until no swaps are made.";
 
     const nextStep = () => {
         if (currentStep < cycles[currentCycle].length - 1) {
@@ -42,6 +43,7 @@ const BubbleSort = () => {
             currentStep={currentStep}
             nextStep={nextStep}
             prevStep={prevStep}
+            stepString={stepString}
             />
         </div>
     );
