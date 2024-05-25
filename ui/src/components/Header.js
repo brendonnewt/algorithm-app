@@ -1,10 +1,12 @@
 /**
- * `Header` is a functional component that returns a header element.
- * The header contains a heading (h1) with the text passed as a prop.
- *
- * @param {Object} props - The properties passed to the component.
- * @param {string} props.text - The text to be displayed in the header.
- * @returns {JSX.Element} A header element with the passed text.
+ * @file Header.js
+ * 
+ * This component is responsible for rendering the header in the UI.
+ * 
+ * The Header component takes in one prop:
+ * - text: The text to display in the header
+ * 
+ * The component returns a header element containing the text prop.
  */
 const Header = ({text}) => {
     return (

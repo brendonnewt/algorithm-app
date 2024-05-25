@@ -5,11 +5,13 @@ import DropMenu from './DropMenu';
 import '../assets/styles/Nav.css';
 
 /**
- * `DropMenu` is a functional component that returns a dropdown menu.
- * The dropdown menu contains links to the Home, Sorting Algorithms, and Graph Algorithms pages.
- * Each link is accompanied by a button with a '+' sign.
- *
- * @returns {JSX.Element} A dropdown menu component.
+ * @file Nav.js
+ * 
+ * This component is responsible for rendering the navigation bar in the UI.
+ * 
+ * The Nav component contains a button to toggle the drop menu.
+ * 
+ * Component returns a navigation bar component that contains a button to toggle the drop menu.
  */
 const Nav = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -21,9 +23,11 @@ const Nav = () => {
     return (
     <nav className='nav'>
         <button type='button'
+        // Add a button element with the class name "navButton" and an onClick event handler to toggle the drop menu
         className={`navButton ${isMenuOpen ? 'menu-open' : 'menu-closed'}`}
         onClick={toggleMenu}
         >
+            {/* If the menu is open it makes the button the hamburger, and an 'x' if it's closed */}
             {isMenuOpen ? <img className="close" src={closeIcon} alt='Navigation Close Button Icon' />
             : <img className="open" src={buttonIcon} alt='Navigation Open Button Icon' />}
         </button>

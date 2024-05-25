@@ -1,8 +1,9 @@
 /**
- * `HomePage` is a functional component that returns the main layout of the home page.
- * The layout consists of a main section with a figure and a section, and a footer.
- *
- * @returns {JSX.Element} The home page layout.
+ * @file HomePage.js
+ * 
+ * This component is responsible for rendering the home page in the UI.
+ * 
+ * The HomePage component returns a div element containing the main and footer elements.
  */
 const HomePage = () => {
     return (

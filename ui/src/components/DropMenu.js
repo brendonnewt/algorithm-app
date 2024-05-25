@@ -2,11 +2,14 @@ import React, {useState} from 'react';
 import '../assets/styles/DropMenu.css';
 
 /**
- * `DropMenu` is a functional component that returns a dropdown menu.
- * Each link is accompanied by a button with a '+' sign.
- * Clicking the '+' button reveals a dropdown menu with subsections.
- *
- * @returns {JSX.Element} A dropdown menu component.
+ * @file DropMenu.js
+ * 
+ * This component is responsible for rendering the drop menu in the UI.
+ * 
+ * The DropMenu component takes in one prop:
+ * - isOpen: A boolean to determine if the drop menu is open
+ * 
+ * The component returns a div element containing a list of links to the sorting and graphing algorithms.
  */
 const DropMenu = ({isOpen}) => {
     const [isSortingOpen, setIsSortingOpen] = useState(false);
@@ -21,6 +24,7 @@ const DropMenu = ({isOpen}) => {
     }
 
     return (
+        // Add a div element with the class name "drop-menu" and a list of links to the sorting and graphing algorithms
         <div className={`drop-menu ${isOpen ? 'open' : ''}`}>
             <ul>
                 <li>
