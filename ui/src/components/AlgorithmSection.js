@@ -3,8 +3,7 @@ import StepPanel from './StepPanel';
 import WorkPanel from './WorkPanel';
 import '../assets/styles/AlgorithmSection.css';
 
-const AlgorithmSection = (props) => {
-    const {cycles, currentCycle, currentStep, nextStep, prevStep, stepString} = props;
+const AlgorithmSection = ({cycles, currentCycle, currentStep, nextStep, prevStep, stepString}) => {
     return (
         <div className="algorithmSection">
             <StepPanel currentCycle={currentCycle} stepString={stepString}/>

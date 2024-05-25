@@ -1,9 +1,10 @@
 const AlgorithmFooter = (props) => {
-    const {setCurrentCycle, setCurrentStep, setCycles, setIsInputting} = props;
+    const {setCurrentCycle, setCurrentStep, setCycles, setIsInputting, inputArr, setOutputArr} = props;
 
     const restart = () => {
         setCurrentCycle(0);
         setCurrentStep(0);
+        setOutputArr([...inputArr]);
     }
     return (
         <footer className="algorithmFooter">
@@ -11,6 +12,7 @@ const AlgorithmFooter = (props) => {
         <button className="resetBtn" onClick={() => {
             setCycles([]);
             setIsInputting(true);
+            restart();
             }}>Reset</button>
         </footer>
     );

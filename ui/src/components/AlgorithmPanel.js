@@ -1,17 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 
 import AlgorithmFooter from "./AlgorithmFooter";
 import GetArrayInput from './GetArrayInput';
+import ArrayPanel from './ArrayPanel';
 import '../assets/styles/AlgorithmPanel.css';
 
 const AlgorithmPanel = (props) => {
-    const {cycles, currentStep, setCycles, setCurrentCycle, setCurrentStep} = props;
-    const [inputArr, setInputArr] = useState([]);
-    const [isInputting, setIsInputting] = useState(true);
+    const {cycles, currentStep, setCycles, 
+        setCurrentCycle, setCurrentStep, inputArr, setInputArr,
+        setOutputArr, outputArr, isInputting, setIsInputting, sort} = props;
 
     const fetchCycles = () => {
+        setOutputArr([...inputArr]);
         const body = {
-            sort: "BubbleSort",
+            sort: sort,
             arr: inputArr,
         };
 
@@ -36,23 +38,31 @@ const AlgorithmPanel = (props) => {
 
     useEffect(() => {
         console.log(cycles);
-    }, [cycles])
+    }, [cycles]);
 
     return (
         <div className="algorithmPanel">
             {isInputting ?
+
             <GetArrayInput 
             inputArr={inputArr}
             setInputArr={setInputArr}
             fetchCycles={fetchCycles}
             setIsInputting={setIsInputting}/>
-            : null}
-            <h1>Algorithm Panel</h1>
+            : 
+            <ArrayPanel 
+            outputArr={outputArr}
+            currentStep={currentStep}
+            />
+
+            }
             <AlgorithmFooter 
             setCurrentCycle={setCurrentCycle}
             setCurrentStep={setCurrentStep}
             setCycles={setCycles}
             setIsInputting={setIsInputting}
+            inputArr={inputArr}
+            setOutputArr={setOutputArr}
             />
         </div>
     )

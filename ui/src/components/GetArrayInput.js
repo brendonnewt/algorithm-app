@@ -5,7 +5,12 @@ const GetArrayInput = (props) => {
     const [input, setInput] = useState('');
     let errorString = '';
 
-    const onSubmit = () => {
+    const onSubmit = (e) => {
+        e.preventDefault();
+        Submit();
+    }
+
+    const Submit = () => {
         // Ensure input is an integer
         if (isNaN(Number.parseInt(input))) {
             return;
@@ -34,7 +39,7 @@ const GetArrayInput = (props) => {
         console.log(inputArr);
     }, [inputArr]);
     return (
-        <form>
+        <form onSubmit={onSubmit}>
             <label>To add an element, enter an integer and sumbit. When you are
                 finished, click done. If you wish to remove an element, click back</label>
             <br /><br />
@@ -51,7 +56,7 @@ const GetArrayInput = (props) => {
             onChange={e => setInput(e.target.value)}
             />
             <br /><br />
-            <button className="submitBtn" type="button" onClick={onSubmit}>Submit</button>
+            <button className="submitBtn" type="button" onClick={Submit}>Submit</button>
             <button className="backBtn" type="button" onClick={onBack}>Back</button>
             <button className="doneBtn" type="button" onClick={onDone}>Done</button>
             <button className="clearBtn" type="button" onClick={() => setInputArr([])}>Clear</button>
