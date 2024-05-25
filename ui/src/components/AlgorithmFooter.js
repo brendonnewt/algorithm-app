@@ -25,7 +25,7 @@ const AlgorithmFooter = ({setCurrentCycle, setCurrentStep, setCycles, setIsInput
      */
     const restart = () => {
         setCurrentCycle(0);
-        setCurrentStep(0);
+        setCurrentStep(-1);
         setOutputArr([...inputArr]);
     }
     return (

@@ -14,18 +14,18 @@
  * The component returns a div element containing the AlgorithmPanel and AlgorithmSection components.
  */
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import AlgorithmPanel from "./AlgorithmPanel";
 import AlgorithmSection from "./AlgorithmSection";
 
 const SortPage = ({ stepString, sort }) => {
     const [cycles, setCycles] = useState([]);   //  Passed up from AlgorithmPanel
     const [currentCycle, setCurrentCycle] = useState(0);    // Tracks the current cycle
-    const [currentStep, setCurrentStep] = useState(0);  // Tracks the current step
-    const [step, setStep] = useState(-1);   // The current step, starts at -1 so nextStep increments to 0
+    const [currentStep, setCurrentStep] = useState(-1);  // Tracks the current step
     const [inputArr, setInputArr] = useState([]);   // Passed up from AlgorithmPanel/GetArrayInput
     const [outputArr, setOutputArr] = useState([]); // Passed up from AlgorithmPanel, used to display the arrays changes
     const [isInputting, setIsInputting] = useState(true);   // Tracks if the user is inputting an array
+    const isManualStep = useRef(false);   // Tracks if the user is manually stepping through the algorithm
 
     /**
      * @function nextStep
@@ -57,19 +57,28 @@ const SortPage = ({ stepString, sort }) => {
      */
     const prevStep = () => {
         // Allows currentStep to be decremented to -1 so nextStep can increment back to 0
-        if (currentCycle === 0) {
-            // If the current step is 0, decrement the cycle
-            if (currentStep >= 0) {
-                setCurrentStep(currentStep - 1);
-            }
+        if (currentCycle === 0 && currentStep === 0) {
+            isManualStep.current = true;
+            performStep(cycles[currentCycle].cycle[currentStep]);
+            setCurrentStep(-1);
             return;
+        }
+
+        // Beginning has been reached
+        if (currentStep === -1) {
+            return;
+        }
+
+        if (currentCycle !== cycles.length - 1 || currentStep !== cycles[currentCycle].cycle.length - 1) {
+            isManualStep.current = true;
+            performStep(cycles[currentCycle].cycle[currentStep]);
         }
 
         // If the current step is not the first step in the cycle, decrement the step
         if (currentStep > 0) {
             setCurrentStep(currentStep - 1);
         // If the current step is the first step in the cycle, decrement the cycle and set the step to the last step in the cycle
-        } else if (currentCycle > 0) {
+        } else {
             setCurrentCycle(currentCycle - 1);
             setCurrentStep(cycles[currentCycle - 1].cycle.length - 1);
         }
@@ -78,7 +87,7 @@ const SortPage = ({ stepString, sort }) => {
     /**
      * @function performStep
      * @description Performs the step by swapping the elements in the output array
-     * @param {*} step 
+     * @param {*} step
      * 
      * @returns {void}
      */
@@ -97,15 +106,21 @@ const SortPage = ({ stepString, sort }) => {
 
     // When the current step or cycle changes, update the step and perform the step
     useEffect(() => {
+        // When a user goes back in the middle somewhere
+        if (isManualStep.current) {
+            isManualStep.current = false;
+            return;
+        }
+        // On normal use case
         if (
             cycles.length > 0 &&
             currentStep >= 0 &&
             cycles[currentCycle] &&
             cycles[currentCycle].cycle[currentStep]
         ) {
-            const newStep = cycles[currentCycle].cycle[currentStep];
-            setStep(newStep);
-            performStep(newStep);
+            console.log(currentCycle, currentStep)
+            const step = cycles[currentCycle].cycle[currentStep];
+            performStep(step);
         }
     }, [currentStep, currentCycle]);
 
