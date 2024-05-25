@@ -1,0 +1,19 @@
+.arrayPanel {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.arrayPanel div {
+    background-color: #ababe0;
+    border-color: #1c1c28;
+    border-style: ridge;
+    border-width: 1px;
+    padding: 10px;
+    flex: 1; /* This allows the elements to grow and shrink */
+    margin: 0 5px; /* This adds a 5px margin to the left and right of each element */
+}
+
+.arrayPanel div.highlighted {
+    background-color: #ffcca9;
+}

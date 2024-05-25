@@ -1,3 +1,6 @@
+import React from 'react';
+import '../assets/styles/ArrayPanel.css';
+
 /**
  * @file ArrayPanel.js
  * 
@@ -17,7 +20,7 @@
 
 const ArrayPanel = ({outputArr, currentStep}) => {
     return (
-        <div>
+        <div className="arrayPanel">
         {/* Creates a div element for each array element */}
         {outputArr.map((element, index) => {
             return (
