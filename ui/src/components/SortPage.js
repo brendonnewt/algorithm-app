@@ -18,7 +18,7 @@ import React, { useState, useEffect, useRef } from "react";
 import AlgorithmPanel from "./AlgorithmPanel";
 import AlgorithmSection from "./AlgorithmSection";
 
-const SortPage = ({ stepString, sort }) => {
+const SortPage = ({stepString, sort}) => {
     const [cycles, setCycles] = useState([]);   //  Passed up from AlgorithmPanel
     const [currentCycle, setCurrentCycle] = useState(0);    // Tracks the current cycle
     const [currentStep, setCurrentStep] = useState(-1);  // Tracks the current step

@@ -78,7 +78,8 @@ const AlgorithmPanel = (props) => {
             inputArr={inputArr}
             setInputArr={setInputArr}
             fetchCycles={fetchCycles}
-            setIsInputting={setIsInputting}/>
+            setIsInputting={setIsInputting}
+            isInputting={isInputting}/>
             : 
             <ArrayPanel 
             outputArr={outputArr}

@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import '../assets/styles/GetArrayInput.css';
 
 /**
  * @file GetArrayInput.js
@@ -16,7 +17,7 @@ import React, {useState} from 'react';
  * The component returns a form element containing an input element, a submit button, a back button, a done button, and a clear button.
  */
 
-const GetArrayInput = ({inputArr, setInputArr, fetchCycles, setIsInputting}) => {
+const GetArrayInput = ({inputArr, setInputArr, fetchCycles, setIsInputting, isInputting}) => {
     const [input, setInput] = useState('');
     let errorString = '';
 
@@ -75,13 +76,13 @@ const GetArrayInput = ({inputArr, setInputArr, fetchCycles, setIsInputting}) => 
     }
 
     return (
-        <form onSubmit={onSubmit}>
+        <form onSubmit={onSubmit} className={`getInput ${isInputting ? 'show' : ''}`}>
             <label>To add an element, enter an integer and sumbit. When you are
                 finished, click done. If you wish to remove an element, click back</label>
             <br /><br />
             <label>{errorString}</label>
             <p>Array:</p>
-            <ul>
+            <ul className='arr'>
                 {/* Maps over the input array and creates a list element for each element */}
                 {inputArr.map((element, index) => {
                     return <li key={index}>{element}</li>;
@@ -93,10 +94,12 @@ const GetArrayInput = ({inputArr, setInputArr, fetchCycles, setIsInputting}) => 
             onChange={e => setInput(e.target.value)}
             />
             <br /><br />
-            <button className="submitBtn" type="button" onClick={Submit}>Submit</button>
-            <button className="backBtn" type="button" onClick={onBack}>Back</button>
-            <button className="doneBtn" type="button" onClick={onDone}>Done</button>
-            <button className="clearBtn" type="button" onClick={() => setInputArr([])}>Clear</button>
+            <div className="btns">
+                <button className="submitBtn" type="button" onClick={Submit}>Submit</button>
+                <button className="backBtn" type="button" onClick={onBack}>Back</button>
+                <button className="doneBtn" type="button" onClick={onDone}>Done</button>
+                <button className="clearBtn" type="button" onClick={() => setInputArr([])}>Clear</button>
+            </div>
         </form>
     );
 }

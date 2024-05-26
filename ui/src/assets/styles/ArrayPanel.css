@@ -1,6 +1,8 @@
 .arrayPanel {
   display: none;
   flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
   justify-content: space-between;
   margin: auto;
 }
@@ -15,8 +17,8 @@
     border-style: ridge;
     border-width: 1px;
     padding: 10px;
-    flex: 1; /* This allows the elements to grow and shrink */
-    margin: 0 5px; /* This adds a 5px margin to the left and right of each element */
+    flex: 1;
+    margin: 0 5px;
 }
 
 .arrayPanel div.highlighted {
