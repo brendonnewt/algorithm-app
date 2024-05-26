@@ -83,6 +83,7 @@ const AlgorithmPanel = (props) => {
             <ArrayPanel 
             outputArr={outputArr}
             currentStep={currentStep}
+            isInputting={isInputting}
             />
 
             }
@@ -91,6 +92,7 @@ const AlgorithmPanel = (props) => {
             setCurrentStep={setCurrentStep}
             setCycles={setCycles}
             setIsInputting={setIsInputting}
+            isInputting={isInputting}
             inputArr={inputArr}
             setOutputArr={setOutputArr}
             />

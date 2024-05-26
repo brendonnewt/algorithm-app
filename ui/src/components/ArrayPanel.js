@@ -18,9 +18,9 @@ import '../assets/styles/ArrayPanel.css';
  * 
  */
 
-const ArrayPanel = ({outputArr, currentStep}) => {
+const ArrayPanel = ({outputArr, currentStep, isInputting}) => {
     return (
-        <div className="arrayPanel">
+        <div className={`arrayPanel ${isInputting ? '' : 'show'}`}>
         {/* Creates a div element for each array element */}
         {outputArr.map((element, index) => {
             return (

@@ -1,7 +1,12 @@
 .arrayPanel {
-  display: flex;
+  display: none;
   flex-direction: row;
   justify-content: space-between;
+  margin: auto;
+}
+
+.arrayPanel.show {
+  display: flex;
 }
 
 .arrayPanel div {
