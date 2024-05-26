@@ -1,10 +1,12 @@
+@import url('global.css');
+
 .algorithmFooter {
     display: none;
     justify-content: space-between;
     align-items: center;
     padding: 0 20px;
     height: 50px;
-    background-color: #f7f7f7;
+    background-color: var(--seasalt);
     margin: auto;
 }
 
@@ -22,19 +24,19 @@
 }
 
 .nextBtn {
-    background-color: #ababe0;
+    background-color: var(--periwinkle);
     color: white;
 }
 
 .nextBtn:hover {
-    background-color: #1c1c28;
+    background-color: var(--raisin-black);
 }
 
 .prevBtn {
-    background-color: #ffe6ce;
-    color: #1c1c28;
+    background-color: var(--almond);
+    color: var(--raisin-black);
 }
 
 .prevBtn:hover {
-    background-color: #ffcca9;
+    background-color: var(--peach);
 }

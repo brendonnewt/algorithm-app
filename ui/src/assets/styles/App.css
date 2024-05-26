@@ -1,3 +1,5 @@
+@import url('global.css');
+
 html, body, .app {
   height: 100%;
   margin: 0;
@@ -22,6 +24,6 @@ body {
   justify-content: center;
   align-items: center;
   padding: 1rem;
-  background-color: #1c1c28;
-  color: #f7f7f7;
+  background-color: var(--raisin-black);
+  color: var(--seasalt);
 }

@@ -1,3 +1,5 @@
+@import url('global.css');
+
 .arrayPanel {
   display: none;
   flex-direction: row;
@@ -12,8 +14,8 @@
 }
 
 .arrayPanel div {
-    background-color: #ababe0;
-    border-color: #1c1c28;
+    background-color: var(--periwinkle);
+    border-color: var(--raisin-black);
     border-style: ridge;
     border-width: 1px;
     padding: 10px;
@@ -22,5 +24,5 @@
 }
 
 .arrayPanel div.highlighted {
-    background-color: #ffcca9;
+    background-color: var(--peach);
 }

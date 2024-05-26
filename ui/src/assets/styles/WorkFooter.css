@@ -1,3 +1,5 @@
+@import url('global.css');
+
 .workFooter {
     display: none;
     justify-content: space-between;
@@ -21,8 +23,8 @@
 }
 
 .workFooter .resetBtn {
-    background-color: #3b3b56;
-    color: white;
+    background-color: var(--space-cadet);
+    color: var(--seasalt);
     border: none;
     border-radius: 5px;
     padding: 10px 20px;
@@ -31,12 +33,12 @@
 }
 
 .workFooter .resetBtn:hover {
-    background-color: #1c1c28;
+    background-color: var(--raisin-black);
 }
 
 .workFooter .restartBtn {
-    background-color: #ababe0;
-    color: #1c1c28;
+    background-color: var(--periwinkle);
+    color: var(--raisin-black);
     border: none;
     border-radius: 5px;
     padding: 10px 20px;
@@ -45,6 +47,6 @@
 }
 
 .workFooter .restartBtn:hover {
-    color: #f7f7f7;
-    background-color: #3b3b56;
+    color: var(--seasalt);
+    background-color: var(--space-cadet);
 }

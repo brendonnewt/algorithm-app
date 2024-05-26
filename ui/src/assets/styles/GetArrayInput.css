@@ -1,3 +1,5 @@
+@import url('global.css');
+
 .getInput {
     display: flex;
     flex-direction: column;
@@ -30,7 +32,7 @@
     border: 1px solid #000; /* Add a border */
     padding: 10px; /* Add some padding */
     text-align: center; /* Center the text */
-    background-color: #f0f0f0; /* Add a background color */
+    background-color: var(--seasalt); /* Add a background color */
 }
 
 .getInput .btns {
@@ -42,7 +44,7 @@
 
 .btns button {
     border-style: none;
-    border: 1px solid #1c2c28;
+    border: 1px solid var(--raisin-black);
     border-radius: 5px;
     padding: 10px 20px;
     text-align: center;
@@ -51,19 +53,19 @@
 }
 
 .btns .submitBtn, .btns .doneBtn {
-    background-color: #ababe0;
-    color: #1c1c28;
+    background-color: var(--periwinkle);
+    color: var(--raisin-black);
 }
 
 .btns .submitBtn:hover, .btns .doneBtn:hover {
-    color:#f0f0f0;
-    background-color: #1c1c28;
+    color: var(--seasalt);
+    background-color: var(--raisin-black);
 }
 
 .btns .backBtn, .btns .clearBtn {
-    background-color: #ffe6ce;
+    background-color: var(--almond);
 }
 
 .btns .backBtn:hover, .btns .clearBtn:hover{
-    background-color: #ffcca9;
+    background-color: var(--peach);
 }
