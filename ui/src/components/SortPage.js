@@ -69,10 +69,8 @@ const SortPage = ({stepString, sort}) => {
             return;
         }
 
-        if (currentCycle !== cycles.length - 1 || currentStep !== cycles[currentCycle].cycle.length - 1) {
-            isManualStep.current = true;
-            performStep(cycles[currentCycle].cycle[currentStep]);
-        }
+        isManualStep.current = true;
+        performStep(cycles[currentCycle].cycle[currentStep]);
 
         // If the current step is not the first step in the cycle, decrement the step
         if (currentStep > 0) {
@@ -107,6 +105,7 @@ const SortPage = ({stepString, sort}) => {
     // When the current step or cycle changes, update the step and perform the step
     useEffect(() => {
         // When a user goes back in the middle somewhere
+        console.log(currentCycle, currentStep)
         if (isManualStep.current) {
             isManualStep.current = false;
             return;
@@ -118,7 +117,6 @@ const SortPage = ({stepString, sort}) => {
             cycles[currentCycle] &&
             cycles[currentCycle].cycle[currentStep]
         ) {
-            console.log(currentCycle, currentStep)
             const step = cycles[currentCycle].cycle[currentStep];
             performStep(step);
         }
