@@ -29,10 +29,8 @@ import '../assets/styles/AlgorithmPanel.css';
  * The component returns a div element containing the GetArrayInput or ArrayPanel component and the AlgorithmFooter component.
  */
 
-const AlgorithmPanel = (props) => {
-    const {cycles, currentStep, setCycles, 
-        setCurrentCycle, setCurrentStep, inputArr, setInputArr,
-        setOutputArr, outputArr, isInputting, setIsInputting, sort} = props;
+const AlgorithmPanel = ({cycles, currentStep, setCycles, inputArr, setInputArr,
+    setOutputArr, outputArr, isInputting, setIsInputting, sort, prevStep, nextStep}) => {
     
     /**
      * @function fetchCycles
@@ -89,13 +87,9 @@ const AlgorithmPanel = (props) => {
 
             }
             <AlgorithmFooter 
-            setCurrentCycle={setCurrentCycle}
-            setCurrentStep={setCurrentStep}
-            setCycles={setCycles}
-            setIsInputting={setIsInputting}
+            prevStep={prevStep}
+            nextStep={nextStep}
             isInputting={isInputting}
-            inputArr={inputArr}
-            setOutputArr={setOutputArr}
             />
         </div>
     )

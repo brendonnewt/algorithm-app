@@ -19,11 +19,20 @@ import '../assets/styles/AlgorithmSection.css';
  * The component returns a div element containing the StepPanel and WorkPanel components.
  */
 
-const AlgorithmSection = ({cycles, currentCycle, currentStep, nextStep, prevStep, stepString}) => {
+const AlgorithmSection = ({cycles, currentCycle, currentStep, nextStep, prevStep, stepString,
+    setCurrentCycle, setCurrentStep, setCycles, setIsInputting, isInputting, inputArr, setOutputArr
+}) => {
     return (
         <div className="algorithmSection">
             <StepPanel currentCycle={currentCycle} stepString={stepString}/>
             <WorkPanel 
+            setCurrentCycle={setCurrentCycle}
+            setCurrentStep={setCurrentStep}
+            setCycles={setCycles}
+            setIsInputting={setIsInputting}
+            isInputting={isInputting}
+            inputArr={inputArr}
+            setOutputArr={setOutputArr}
             cycles={cycles}
             currentStep={currentStep}
             nextStep={nextStep}

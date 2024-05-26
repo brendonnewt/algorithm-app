@@ -18,7 +18,7 @@ import React, { useState, useEffect, useRef } from "react";
 import AlgorithmPanel from "./AlgorithmPanel";
 import AlgorithmSection from "./AlgorithmSection";
 
-const SortPage = ({stepString, sort}) => {
+const SortPage = ({stepString, sort, performStep}) => {
     const [cycles, setCycles] = useState([]);   //  Passed up from AlgorithmPanel
     const [currentCycle, setCurrentCycle] = useState(0);    // Tracks the current cycle
     const [currentStep, setCurrentStep] = useState(-1);  // Tracks the current step
@@ -59,7 +59,7 @@ const SortPage = ({stepString, sort}) => {
         // Allows currentStep to be decremented to -1 so nextStep can increment back to 0
         if (currentCycle === 0 && currentStep === 0) {
             isManualStep.current = true;
-            performStep(cycles[currentCycle].cycle[currentStep]);
+            performStep(cycles[currentCycle].cycle[currentStep], outputArr, setOutputArr);
             setCurrentStep(-1);
             return;
         }
@@ -70,7 +70,7 @@ const SortPage = ({stepString, sort}) => {
         }
 
         isManualStep.current = true;
-        performStep(cycles[currentCycle].cycle[currentStep]);
+        performStep(cycles[currentCycle].cycle[currentStep], outputArr, setOutputArr);
 
         // If the current step is not the first step in the cycle, decrement the step
         if (currentStep > 0) {
@@ -79,26 +79,6 @@ const SortPage = ({stepString, sort}) => {
         } else {
             setCurrentCycle(currentCycle - 1);
             setCurrentStep(cycles[currentCycle - 1].cycle.length - 1);
-        }
-    };
-
-    /**
-     * @function performStep
-     * @description Performs the step by swapping the elements in the output array
-     * @param {*} step
-     * 
-     * @returns {void}
-     */
-    const performStep = (step) => {
-        // If the step is a swap step, swap the elements in the output array
-        if (step && step.swapped) {
-            const newOutputArr = [...outputArr];
-            const [index1, index2] = step.compared[0];
-            [newOutputArr[index1], newOutputArr[index2]] = [
-                newOutputArr[index2],
-                newOutputArr[index1],
-            ];
-            setOutputArr(newOutputArr);
         }
     };
 
@@ -118,7 +98,7 @@ const SortPage = ({stepString, sort}) => {
             cycles[currentCycle].cycle[currentStep]
         ) {
             const step = cycles[currentCycle].cycle[currentStep];
-            performStep(step);
+            performStep(step, outputArr, setOutputArr);
         }
     }, [currentStep, currentCycle]);
 
@@ -138,13 +118,23 @@ const SortPage = ({stepString, sort}) => {
                 outputArr={outputArr}
                 setOutputArr={setOutputArr}
                 sort={sort}
+                prevStep={prevStep}
+                nextStep={nextStep}
             />
             <AlgorithmSection
                 cycles={cycles}
-                currentCycle={currentCycle}
                 currentStep={currentStep}
-                nextStep={nextStep}
-                prevStep={prevStep}
+                currentCycle={currentCycle}
+                setCycles={setCycles}
+                setCurrentCycle={setCurrentCycle}
+                setCurrentStep={setCurrentStep}
+                inputArr={inputArr}
+                setInputArr={setInputArr}
+                isInputting={isInputting}
+                setIsInputting={setIsInputting}
+                outputArr={outputArr}
+                setOutputArr={setOutputArr}
+                sort={sort}
                 stepString={stepString}
             />
         </div>

@@ -17,29 +17,12 @@ import '../assets/styles/AlgorithmFooter.css';
  * The component returns a footer element containing a restart button and a reset button.
  */
 
-const AlgorithmFooter = ({setCurrentCycle, setCurrentStep, setCycles, isInputting, setIsInputting, inputArr, setOutputArr}) => {
+const AlgorithmFooter = ({prevStep, nextStep, isInputting}) => {
 
-    /**
-     * @function restart
-     * @description Restarts the algorithm by setting the current cycle and
-     * current step to 0 and setting the output array to the input array.
-     * 
-     * @returns {void}
-     */
-    const restart = () => {
-        setCurrentCycle(0);
-        setCurrentStep(-1);
-        setOutputArr([...inputArr]);
-    }
     return (
-        <footer className={`arrayPanel ${isInputting ? '' : 'show'}`}>
-            {/* Reset button clears the cycles and sets the isInputting state to true */}
-            <button className="resetBtn" onClick={() => {
-            setCycles([]);
-            setIsInputting(true);
-            restart();
-            }}>Close</button>
-            <button className="restartBtn" onClick={restart}>Restart</button>
+        <footer className={`algorithmFooter ${isInputting ? '' : 'show'}`}>
+            <button className="prevBtn" onClick={prevStep}>Prev</button>
+            <button className="nextBtn" onClick={nextStep}>Next</button>
         </footer>
     );
 }

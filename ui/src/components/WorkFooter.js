@@ -10,12 +10,29 @@
  * The component returns a footer element containing two buttons.
  */
 
-const WorkFooter = (props) => {
-    const {prevStep, nextStep} = props;
+const WorkFooter = ({setCurrentCycle, setCurrentStep, setCycles, isInputting, setIsInputting, inputArr, setOutputArr}) => {
+    
+    /**
+     * @function restart
+     * @description Restarts the algorithm by setting the current cycle and
+     * current step to 0 and setting the output array to the input array.
+     * 
+     * @returns {void}
+     */
+    const restart = () => {
+        setCurrentCycle(0);
+        setCurrentStep(-1);
+        setOutputArr([...inputArr]);
+    }
     return (
-        <footer className="workFooter">
-            <button className="prevBtn" onClick={prevStep}>Prev</button>
-            <button className="nextBtn" onClick={nextStep}>Next</button>
+        <footer className={`workFooter ${isInputting ? '' : 'show'}`}>
+            {/* Reset button clears the cycles and sets the isInputting state to true */}
+            <button className="resetBtn" onClick={() => {
+            setCycles([]);
+            setIsInputting(true);
+            restart();
+            }}>Close</button>
+            <button className="restartBtn" onClick={restart}>Restart</button>
         </footer>
     );
 }

@@ -17,12 +17,24 @@ import '../assets/styles/WorkPanel.css';
  * The component returns a div element containing the WorkFooter component.
  */
 
-const WorkPanel = (props) => {
-    const {cycles, currentCycle, currentStep, nextStep, prevStep} = props;
+const WorkPanel = ({cycles, currentCycle, currentStep, nextStep, prevStep,
+    setCurrentCycle, setCurrentStep, setCycles, setIsInputting, isInputting, inputArr, setOutputArr
+}) => {
     return (
         <div className="workPanel">
             <h1>Work Panel</h1>
-            <WorkFooter prevStep={prevStep} nextStep={nextStep}/>
+            <WorkFooter prevStep={prevStep} 
+            nextStep={nextStep}
+            cycles={cycles}
+            currentCycle={currentCycle}
+            currentStep={currentStep}
+            setCurrentCycle={setCurrentCycle}
+            setCurrentStep={setCurrentStep}
+            setCycles={setCycles}
+            setIsInputting={setIsInputting}
+            isInputting={isInputting}
+            inputArr={inputArr}
+            setOutputArr={setOutputArr}/>
         </div>
     );
 }

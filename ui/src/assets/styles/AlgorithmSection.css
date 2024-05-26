@@ -7,5 +7,7 @@
     padding: 0;
     width: 30%;
     height: 100%;
+    min-width: 200px;
+    min-height: 600px;
     background-color: #ffe6ce;
 }
