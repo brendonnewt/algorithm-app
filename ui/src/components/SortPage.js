@@ -26,7 +26,8 @@ const SortPage = ({stepString, sort, performStep}) => {
     const [outputArr, setOutputArr] = useState([]); // Passed up from AlgorithmPanel, used to display the arrays changes
     const [isInputting, setIsInputting] = useState(true);   // Tracks if the user is inputting an array
     const isManualStep = useRef(false);   // Tracks if the user is manually stepping through the algorithm
-
+    const [compared, setCompared] = useState([]); // Tracks the indexes of the elements being compared
+    const [result, setResult] = useState(false); // Tracks the result of the algorithm
     /**
      * @function nextStep
      * @description Increments the current step, if the current step is the last step in the cycle, it increments the current cycle
@@ -59,8 +60,9 @@ const SortPage = ({stepString, sort, performStep}) => {
         // Allows currentStep to be decremented to -1 so nextStep can increment back to 0
         if (currentCycle === 0 && currentStep === 0) {
             isManualStep.current = true;
-            performStep(cycles[currentCycle].cycle[currentStep], outputArr, setOutputArr);
+            performStep(cycles[currentCycle].cycle[currentStep], outputArr, setOutputArr, setCompared, setResult);
             setCurrentStep(-1);
+            setCompared([]);
             return;
         }
 
@@ -70,7 +72,7 @@ const SortPage = ({stepString, sort, performStep}) => {
         }
 
         isManualStep.current = true;
-        performStep(cycles[currentCycle].cycle[currentStep], outputArr, setOutputArr);
+        performStep(cycles[currentCycle].cycle[currentStep], outputArr, setOutputArr, setCompared, setResult);
 
         // If the current step is not the first step in the cycle, decrement the step
         if (currentStep > 0) {
@@ -85,7 +87,6 @@ const SortPage = ({stepString, sort, performStep}) => {
     // When the current step or cycle changes, update the step and perform the step
     useEffect(() => {
         // When a user goes back in the middle somewhere
-        console.log(currentCycle, currentStep)
         if (isManualStep.current) {
             isManualStep.current = false;
             return;
@@ -97,8 +98,9 @@ const SortPage = ({stepString, sort, performStep}) => {
             cycles[currentCycle] &&
             cycles[currentCycle].cycle[currentStep]
         ) {
+            console.log(currentCycle, currentStep);
             const step = cycles[currentCycle].cycle[currentStep];
-            performStep(step, outputArr, setOutputArr);
+            performStep(step, outputArr, setOutputArr, setCompared, setResult);
         }
     }, [currentStep, currentCycle]);
 
@@ -133,9 +135,11 @@ const SortPage = ({stepString, sort, performStep}) => {
                 isInputting={isInputting}
                 setIsInputting={setIsInputting}
                 outputArr={outputArr}
+                compared={compared}
                 setOutputArr={setOutputArr}
                 sort={sort}
                 stepString={stepString}
+                result={result}
             />
         </div>
     );

@@ -13,7 +13,7 @@ import SortPage from '../components/SortPage';
 import '../assets/styles/MainPanel.css';
 
 const BubbleSort = () => {
-    const stepString = "Compare elements at index i and i+1. If element at i is greater than element at i+1, swap them. Repeat this process for all elements in the array until no swaps are made.";
+    const stepString = (i, j, result) => `Compare ${i} and ${j}. ${result ? "Swap them" : "Do not swap them"}`;
     const sort = "BubbleSort";
 
     /**
@@ -23,16 +23,26 @@ const BubbleSort = () => {
      * 
      * @returns {void}
      */
-    const performStep = (step, outputArr, setOutputArr) => {
+    const performStep = (step, outputArr, setOutputArr, setCompared, setResult) => {
         // If the step is a swap step, swap the elements in the output array
-        if (step && step.swapped) {
+        if (!step) return;
+        
+        // Get the indices of the elements being compared
+        const [index1, index2] = step.compared[0];
+        console.log(step.compared[0])
+        setCompared([index1, index2]);
+        
+        // If the step is a swap step, swap the elements in the output array
+        if (step.swapped) {
+            setResult(true);
             const newOutputArr = [...outputArr];
-            const [index1, index2] = step.compared[0];
             [newOutputArr[index1], newOutputArr[index2]] = [
                 newOutputArr[index2],
                 newOutputArr[index1],
             ];
             setOutputArr(newOutputArr);
+        } else {
+            setResult(false);
         }
     };
 

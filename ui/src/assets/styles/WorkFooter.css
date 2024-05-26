@@ -1,0 +1,50 @@
+.workFooter {
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    background-color: none;
+    margin-top: 10px;
+}
+
+.workFooter.show {
+    display: flex;
+}
+
+.workFooter button {
+    font-size: 16px;
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+
+}
+
+.workFooter .resetBtn {
+    background-color: #3b3b56;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.workFooter .resetBtn:hover {
+    background-color: #1c1c28;
+}
+
+.workFooter .restartBtn {
+    background-color: #ababe0;
+    color: #1c1c28;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.workFooter .restartBtn:hover {
+    color: #f7f7f7;
+    background-color: #3b3b56;
+}

@@ -1,13 +1,20 @@
+import React from 'react';
+import '../assets/styles/WorkFooter.css';
+
 /**
  * @file WorkFooter.js
  * 
- * This component is responsible for rendering the footer in the UI.
+ * This component is responsible for rendering the work panel footer in the UI.
  * 
- * The WorkFooter component takes in two props:
- * - prevStep: A function that handles the previous step in the sorting algorithm
- * - nextStep: A function that handles the next step in the sorting algorithm
+ * The WorkFooter component takes in the following props:
+ * - setCurrentCycle: A function to set the current cycle
+ * - setCurrentStep: A function to set the current step
+ * - setCycles: A function to set the cycles
+ * - setIsInputting: A function to set the isInputting state
+ * - inputArr: The input array
+ * - setOutputArr: A function to set the output array
  * 
- * The component returns a footer element containing two buttons.
+ * The component returns a footer element containing a restart button and a reset button.
  */
 
 const WorkFooter = ({setCurrentCycle, setCurrentStep, setCycles, isInputting, setIsInputting, inputArr, setOutputArr}) => {

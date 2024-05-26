@@ -20,23 +20,28 @@ import '../assets/styles/AlgorithmSection.css';
  */
 
 const AlgorithmSection = ({cycles, currentCycle, currentStep, nextStep, prevStep, stepString,
-    setCurrentCycle, setCurrentStep, setCycles, setIsInputting, isInputting, inputArr, setOutputArr
+    setCurrentCycle, setCurrentStep, setCycles, setIsInputting, isInputting, inputArr, outputArr,
+    setOutputArr, compared, result
 }) => {
     return (
         <div className="algorithmSection">
-            <StepPanel currentCycle={currentCycle} stepString={stepString}/>
+            <StepPanel currentCycle={currentCycle}/>
             <WorkPanel 
             setCurrentCycle={setCurrentCycle}
             setCurrentStep={setCurrentStep}
             setCycles={setCycles}
             setIsInputting={setIsInputting}
             isInputting={isInputting}
+            outputArr={outputArr}
             inputArr={inputArr}
             setOutputArr={setOutputArr}
             cycles={cycles}
             currentStep={currentStep}
             nextStep={nextStep}
             prevStep={prevStep}
+            stepString={stepString}
+            compared={compared}
+            result={result}
             />
         </div>
     );

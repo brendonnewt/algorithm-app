@@ -14,12 +14,11 @@ import "../assets/styles/StepPanel.css";
  * The component returns a div element containing the current cycle and the description of the current step.
  */
 
-const StepPanel = ({currentCycle, stepString}) => {
+const StepPanel = ({currentCycle}) => {
 
     return (
         <div className="stepPanel">
             <h1>Cycle {currentCycle}:</h1>
-            <p>{stepString}</p>
         </div>
     );
 }

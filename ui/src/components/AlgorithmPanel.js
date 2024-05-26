@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 
 import AlgorithmFooter from "./AlgorithmFooter";
 import GetArrayInput from './GetArrayInput';
@@ -66,6 +66,10 @@ const AlgorithmPanel = ({cycles, currentStep, setCycles, inputArr, setInputArr,
         })
         .catch(error => console.error(error));
     }
+
+    useEffect(() => {
+        console.log(cycles);
+    }, [cycles]);
 
     return (
         <div className="algorithmPanel">
