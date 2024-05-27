@@ -47,6 +47,7 @@ pub struct PathOutput {
  * Desc: Enum for the sorting algorithm types
  * Variants:
  * - BubbleSort
+ * - InsertionSort
  *
  * The enum defines the different sorting algorithm types that can be used.
  * The variants represent the different sorting algorithms that can be used.
@@ -54,6 +55,7 @@ pub struct PathOutput {
  */
 pub enum SortType {
     BubbleSort,
+    InsertionSort,
 }
 
 /***
@@ -65,6 +67,7 @@ impl SortType {
     pub fn as_type(string: &str) -> Option<SortType> {
         match string {
             "BubbleSort" => Some(SortType::BubbleSort),
+            "InsertionSort" => Some(SortType::InsertionSort),
             _ => None,
         }
     }
