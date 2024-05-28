@@ -18,6 +18,9 @@ function Main() {
       case '/sorting/bubblesort':
         headerText = 'Bubble Sort';
         break;
+      case '/sorting/insertionsort':
+        headerText = 'Insertion Sort';
+        break;
     // Add more cases as needed for other routes
     default:
       headerText = '';
