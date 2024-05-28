@@ -24,3 +24,10 @@ The following resources were used for studying the algorithms and providing note
 - **[TechTarget](https://www.techtarget.com/whatis/definition/algorithm)**: Provides the definition of an algorithm.
 
 - **[Programiz](https://www.programiz.com)**: A comprehensive resource for learning programming concepts and algorithms.
+
+## Running the API in Docker
+```bash
+cd api
+docker-compose up --build
+```
+
