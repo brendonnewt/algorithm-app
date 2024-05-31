@@ -8,7 +8,8 @@ import '../assets/styles/ArrayPanel.css';
  * 
  * The ArrayPanel component takes in two props:
  * - outputArr: The array that is being sorted
- * - currentStep: The current step in the sorting algorithm
+ * - compared: The indices of the elements being compared
+ * - isInputting: A boolean to determine if the user is inputting an array
  * 
  * The component maps over the outputArr and creates a div element for each array element.
  * 
@@ -24,7 +25,9 @@ const ArrayPanel = ({outputArr, compared, isInputting}) => {
         {/* Creates a div element for each array element */}
         {outputArr.map((element, index) => {
             return (
-                <div key={index} className={compared.length > 0 ? (index === compared[0] || index === compared[1] ? "highlighted" : "")
+                <div key={index} className={compared.length > 0 ? 
+                    (index === compared[0] || index === compared[1] ? `highlighted ${index === compared[0] ? '1' : '2'}`
+                    : "")
                     : ""
                 }>
                     {element}

@@ -3,9 +3,10 @@
  * 
  * This component is responsible for rendering the main panel in the UI.
  * 
- * The SortPage component takes in two props:
+ * The SortPage component takes in three props:
  * - stepString: The description of the step for the algorithm
  * - sort: The sorting algorithm
+ * - performStep: A function to perform the step in the sorting algorithm
  * 
  * The component uses the useState hook to manage the state of the current cycle, current step, step, input array, output array, and isInputting boolean.
  * 
