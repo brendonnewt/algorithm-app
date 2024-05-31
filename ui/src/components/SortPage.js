@@ -35,10 +35,6 @@ const SortPage = ({stepString, sort, performStep}) => {
      * @returns {void}
      */
     const nextStep = () => {
-        // If the cycle is empty, algorithm is done (broke early)
-        if (cycles[currentCycle].cycle.length === 0) {
-            return;
-        }
 
         // If the current step is not the last step in the cycle, increment the step
         if (currentStep < cycles[currentCycle].cycle.length - 1) {
@@ -77,10 +73,25 @@ const SortPage = ({stepString, sort, performStep}) => {
         // If the current step is not the first step in the cycle, decrement the step
         if (currentStep > 0) {
             setCurrentStep(currentStep - 1);
+            if (cycles[currentCycle].cycle[currentStep] !== undefined) {
+                // Set the step description to the prev step
+                const [index1, index2] = cycles[currentCycle].cycle[currentStep].compared[0];
+                setResult(cycles[currentCycle].cycle[currentStep].swapped);
+                setCompared([index1, index2]);
+                setResult(cycles[currentCycle].cycle[currentStep].swapped);
+            }
+            // Decrement the step
         // If the current step is the first step in the cycle, decrement the cycle and set the step to the last step in the cycle
         } else {
+            // Decrement the cycle and step
             setCurrentCycle(currentCycle - 1);
             setCurrentStep(cycles[currentCycle - 1].cycle.length - 1);
+            if (cycles[currentCycle].cycle[currentStep] !== undefined) {
+                // Set the step description to the prev step
+                const [index1, index2] = cycles[currentCycle].cycle[currentStep].compared[0];
+                setCompared([index1, index2]);
+                setResult(cycles[currentCycle].cycle[currentStep].swapped);
+            }
         }
     };
 
@@ -136,6 +147,7 @@ const SortPage = ({stepString, sort, performStep}) => {
                 setIsInputting={setIsInputting}
                 outputArr={outputArr}
                 compared={compared}
+                setCompared={setCompared}
                 setOutputArr={setOutputArr}
                 sort={sort}
                 stepString={stepString}

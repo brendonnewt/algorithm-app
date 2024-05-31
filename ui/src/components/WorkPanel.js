@@ -19,7 +19,7 @@ import '../assets/styles/WorkPanel.css';
 
 const WorkPanel = ({cycles, currentCycle, currentStep, nextStep, prevStep,
     setCurrentCycle, setCurrentStep, setCycles, setIsInputting, isInputting, 
-    inputArr, outputArr, setOutputArr, compared, stepString, result
+    inputArr, outputArr, setOutputArr, compared, setCompared, stepString, result
 }) => {
     return (
         <div className="workPanel">
@@ -42,7 +42,8 @@ const WorkPanel = ({cycles, currentCycle, currentStep, nextStep, prevStep,
             setIsInputting={setIsInputting}
             isInputting={isInputting}
             inputArr={inputArr}
-            setOutputArr={setOutputArr}/>
+            setOutputArr={setOutputArr}
+            setCompared={setCompared}/>
         </div>
     );
 }

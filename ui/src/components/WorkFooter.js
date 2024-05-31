@@ -17,7 +17,7 @@ import '../assets/styles/WorkFooter.css';
  * The component returns a footer element containing a restart button and a reset button.
  */
 
-const WorkFooter = ({setCurrentCycle, setCurrentStep, setCycles, isInputting, setIsInputting, inputArr, setOutputArr}) => {
+const WorkFooter = ({setCurrentCycle, setCurrentStep, setCycles, isInputting, setIsInputting, inputArr, setOutputArr, setCompared}) => {
     
     /**
      * @function restart
@@ -30,6 +30,7 @@ const WorkFooter = ({setCurrentCycle, setCurrentStep, setCycles, isInputting, se
         setCurrentCycle(0);
         setCurrentStep(-1);
         setOutputArr([...inputArr]);
+        setCompared([]);
     }
     return (
         <footer className={`workFooter ${isInputting ? '' : 'show'}`}>

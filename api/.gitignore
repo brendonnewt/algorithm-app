@@ -1,1 +1,198 @@
-/target
+# Rust specific
+/target/
+/Cargo.lock
+
+# Build artifacts
+**/*.rs.bk
+
+# Binaries
+*.exe
+*.dll
+*.dylib
+*.so
+
+# Rust/Cargo specific
+/target/
+Cargo.lock
+**/target/**
+
+# Package managers
+/node_modules/
+/yarn.lock
+
+# MacOS specific
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Visual Studio Code specific
+.vscode/
+*.code-workspace
+
+# VS Code settings history
+.history/
+
+# Optional intellisense database
+.vscode/sqlite3
+
+# Python virtual environments
+venv/
+ENV/
+
+# Backup files
+*.bak
+*.tmp
+*.temp
+*.swp
+*~*
+
+# Logs and databases
+*.log
+*.sql
+*.sqlite
+
+# Operating system generated files
+Thumbs.db
+Desktop.ini
+
+# Temporary files
+*.tmp
+*.temp
+
+# Logs
+*.log
+
+# IDE files
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Other IDEs and editors
+*.iml
+*.ipr
+*.iws
+
+# JetBrains IDEs
+/.idea/
+/*.iml
+/.idea/**
+
+# Sublime Text
+*.sublime-workspace
+*.sublime-project
+sftp-config.json
+sftp-settings.json
+/Packages
+*.tmTheme.cache
+*.tmPreferences.cache
+*.stTheme.cache
+*.sublime-package
+*.sublime-settings
+*.sublime-snippet
+*.sublime-syntax
+*.sublime-completions
+*.sublime-macro
+*.sublime-keymap
+*.sublime-menu
+*.sublime-mousemap
+*.sublime-color-scheme
+
+# Code::Blocks
+*.layout
+*.depend
+*.depend.*
+*.cbp
+
+# CMake
+CMakeCache.txt
+CMakeFiles
+CMakeScripts
+CTestTestfile.cmake
+cmake_install.cmake
+install_manifest.txt
+
+# CodeLite
+*.tags
+*.tags1
+*.wsp
+
+# Qt
+*.pro.user
+*.pro.user.*
+*.qbs.user
+*.qbs.user.*
+
+# Lazarus
+*.lps
+*.lpi.bak
+
+# Windows specific
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msm
+*.msp
+*.lnk
+
+# App images
+*.tar.gz
+*.zip
+*.app
+
+# Local virtual environment
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Jupyter Notebooks
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# pipenv
+pipfile.lock
+*.virtualenv
+
+# PEP 582
+__pypackages__/
+
+# Pyre type checker
+.pyre/
+
+# Pyright type checker
+.pyright/
+
+# End of .gitignore
