@@ -1,4 +1,4 @@
-// Desc: Structs for the sorting and pathfinding endpoints
+//! This module contains the structs used in the sorting and pathfinding endpoints.
 use serde::{Deserialize, Serialize};
 
 #[derive(Deserialize, Serialize)]

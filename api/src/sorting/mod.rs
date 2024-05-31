@@ -1,3 +1,4 @@
+//! This module contains the sorting algorithm implementations
 mod implementations;
 
 use super::structs::{SortType, SortingInput, SortingOutput};
