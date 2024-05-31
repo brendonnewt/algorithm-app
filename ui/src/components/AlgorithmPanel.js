@@ -23,6 +23,9 @@ import '../assets/styles/AlgorithmPanel.css';
  * - isInputting: A boolean to determine if the user is inputting an array
  * - setIsInputting: A function to set the isInputting boolean
  * - sort: The sorting algorithm
+ * - prevStep: A function to decrement the current step
+ * - nextStep: A function to increment the current step
+ * - compared: The indices of the elements being compared
  * 
  * The component conditionally renders the GetArrayInput component or the ArrayPanel component based on the isInputting boolean.
  * 
@@ -30,7 +33,7 @@ import '../assets/styles/AlgorithmPanel.css';
  */
 
 const AlgorithmPanel = ({cycles, currentStep, setCycles, inputArr, setInputArr,
-    setOutputArr, outputArr, isInputting, setIsInputting, sort, prevStep, nextStep}) => {
+    setOutputArr, outputArr, isInputting, setIsInputting, sort, prevStep, nextStep, compared}) => {
     
     /**
      * @function fetchCycles
@@ -85,7 +88,7 @@ const AlgorithmPanel = ({cycles, currentStep, setCycles, inputArr, setInputArr,
             : 
             <ArrayPanel 
             outputArr={outputArr}
-            currentStep={currentStep}
+            compared={compared}
             isInputting={isInputting}
             />
 

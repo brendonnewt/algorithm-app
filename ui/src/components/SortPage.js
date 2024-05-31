@@ -133,6 +133,7 @@ const SortPage = ({stepString, sort, performStep}) => {
                 sort={sort}
                 prevStep={prevStep}
                 nextStep={nextStep}
+                compared={compared}
             />
             <AlgorithmSection
                 cycles={cycles}

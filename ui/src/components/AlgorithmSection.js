@@ -15,6 +15,17 @@ import '../assets/styles/AlgorithmSection.css';
  * - nextStep: A function to increment the current step
  * - prevStep: A function to decrement the current step
  * - stepString: The description of the current step
+ * - setCurrentCycle: A function to set the current cycle
+ * - setCurrentStep: A function to set the current step
+ * - setCycles: A function to set the cycles
+ * - setIsInputting: A function to set the isInputting boolean
+ * - isInputting: A boolean to determine if the user is inputting an array
+ * - inputArr: The input array
+ * - outputArr: The output array
+ * - setOutputArr: A function to set the output array
+ * - compared: The indices of the elements being compared
+ * - setCompared: A function to set the compared indices
+ * - result: The result of the sorting algorithm
  * 
  * The component returns a div element containing the StepPanel and WorkPanel components.
  */

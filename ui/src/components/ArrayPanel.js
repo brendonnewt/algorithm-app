@@ -18,13 +18,15 @@ import '../assets/styles/ArrayPanel.css';
  * 
  */
 
-const ArrayPanel = ({outputArr, currentStep, isInputting}) => {
+const ArrayPanel = ({outputArr, compared, isInputting}) => {
     return (
         <div className={`arrayPanel ${isInputting ? '' : 'show'}`}>
         {/* Creates a div element for each array element */}
         {outputArr.map((element, index) => {
             return (
-                <div key={index} className={index === currentStep || index === currentStep + 1 ? "highlighted" : ""}>
+                <div key={index} className={compared.length > 0 ? (index === compared[0] || index === compared[1] ? "highlighted" : "")
+                    : ""
+                }>
                     {element}
                 </div>
             );
