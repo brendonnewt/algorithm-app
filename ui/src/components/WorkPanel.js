@@ -19,15 +19,16 @@ import '../assets/styles/WorkPanel.css';
 
 const WorkPanel = ({cycles, currentCycle, currentStep, nextStep, prevStep,
     setCurrentCycle, setCurrentStep, setCycles, setIsInputting, isInputting, 
-    inputArr, outputArr, setOutputArr, compared, setCompared, stepString, result
+    inputArr, outputArr, setOutputArr, compared, setCompared, stepString, result, done
 }) => {
     return (
         <div className="workPanel">
             {isInputting ? '' :
             <p>
                 {
-                    compared.length > 0 ? stepString(outputArr[compared[0]], outputArr[compared[1]], result) 
-                    : 'Comparisons will be shown here as the algorithm progresses. Click next to begin.'
+                    done ? 'The algorithm is done. Click prev to see the steps again.' :
+                    compared.length > 0 ? stepString(outputArr[compared[0]], outputArr[compared[1]], result) :
+                    'Comparisons will be shown here as the algorithm progresses. Click next to begin.'
                 }
                 
             </p>}

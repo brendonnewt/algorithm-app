@@ -28,6 +28,7 @@ const SortPage = ({stepString, sort, performStep}) => {
     const isManualStep = useRef(false);   // Tracks if the user is manually stepping through the algorithm
     const [compared, setCompared] = useState([]); // Tracks the indexes of the elements being compared
     const [result, setResult] = useState(false); // Tracks the result of the algorithm
+    const [done, setDone] = useState(false); // Tracks if the algorithm is done
     /**
      * @function nextStep
      * @description Increments the current step, if the current step is the last step in the cycle, it increments the current cycle
@@ -43,6 +44,8 @@ const SortPage = ({stepString, sort, performStep}) => {
         } else if (currentCycle < cycles.length - 1) {
             setCurrentCycle(currentCycle + 1);
             setCurrentStep(0);
+        } else {
+            setDone(true);
         }
     };
 
@@ -53,6 +56,12 @@ const SortPage = ({stepString, sort, performStep}) => {
      * @returns {void}
      */
     const prevStep = () => {
+
+        // If marked as done, reset the done state
+        if (done) {
+            setDone(false);
+        }
+
         // Allows currentStep to be decremented to -1 so nextStep can increment back to 0
         if (currentCycle === 0 && currentStep === 0) {
             isManualStep.current = true;
@@ -113,6 +122,7 @@ const SortPage = ({stepString, sort, performStep}) => {
             const step = cycles[currentCycle].cycle[currentStep];
             performStep(step, outputArr, setOutputArr, setCompared, setResult);
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [currentStep, currentCycle]);
 
     return (
@@ -153,6 +163,7 @@ const SortPage = ({stepString, sort, performStep}) => {
                 sort={sort}
                 stepString={stepString}
                 result={result}
+                done={done}
             />
         </div>
     );

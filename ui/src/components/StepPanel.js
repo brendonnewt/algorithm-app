@@ -7,18 +7,18 @@ import "../assets/styles/StepPanel.css";
  * 
  * The StepPanel component takes in two props:
  * - currentCycle: The current cycle in the sorting algorithm
- * - stepString: The description of the current step
+ * - isInputting: A boolean to determine if the user is inputting an array
  * 
  * The component renders the current cycle and the description of the current step.
  * 
  * The component returns a div element containing the current cycle and the description of the current step.
  */
 
-const StepPanel = ({currentCycle}) => {
+const StepPanel = ({currentCycle, isInputting}) => {
 
     return (
         <div className="stepPanel">
-            <h1>Cycle {currentCycle}:</h1>
+            {isInputting ? "" : <h1>Cycle {currentCycle + 1}:</h1>}
         </div>
     );
 }
