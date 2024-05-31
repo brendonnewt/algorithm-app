@@ -6,14 +6,13 @@ use actix_web::{web, App, HttpServer};
 use sorting::get_output;
 use structs::SortingInput;
 
-/***
- * Desc: Handler for the sorting endpoint
- * Args: input: web::Json<SortingInput>
- * Return: Result<web::Json<SortingOutput>, actix_web::Error>
- *
- * The function takes a web::Json<SortingInput> as an argument and returns a Result<web::Json<SortingOutput>, actix_web::Error>.
- * The function calls the get_output function from the sorting module and returns the output as a JSON response.
- */
+/// Handler for the sorting endpoint
+/// # Arguments
+/// * `input` - The input for the sorting endpoint
+/// # Returns
+/// * `Result<web::Json<SortingOutput>, actix_web::Error>` - The output of the sorting endpoint
+/// The sort_handler function is the handler for the sorting endpoint.
+/// It takes a JSON input and returns a JSON output.
 async fn sort_handler(
     input: web::Json<SortingInput>,
 ) -> Result<web::Json<structs::SortingOutput>, actix_web::Error> {
@@ -26,6 +25,12 @@ async fn sort_handler(
     }
 }
 
+/// Handler for the path endpoint
+/// # Arguments
+/// * `input` - The input for the path endpoint
+/// # Returns
+/// * `Result<web::Json<PathOutput>, actix_web::Error>` - The output of the path endpoint
+/// TODO: Implement the path_handler function
 async fn path_handler(
     input: web::Json<SortingInput>,
 ) -> Result<web::Json<structs::SortingOutput>, actix_web::Error> {
@@ -38,12 +43,19 @@ async fn path_handler(
     }
 }
 
-/***
- * Desc: Main function to start the Actix server
- * Return: std::io::Result<()>
- *
- * The main function starts the Actix server on localhost:8080 and routes the /api/algorithm/sort endpoint to the sort_handler function.
- */
+/// Main function to start the Actix server
+/// # Returns
+/// * `std::io::Result<()>` - The result of running the Actix server
+/// The main function starts the Actix server and binds it to the localhost on port 8080.
+/// It creates a new Actix App with the sorting and path endpoints, and runs the server.
+/// The server is run asynchronously using the `actix_web::main` attribute.
+/// The server is started by calling the `run` method on the `HttpServer` struct.
+/// The server is bound to the localhost on port 8080 using the `bind` method.
+/// The server is run using the `await` keyword.
+/// The server is started with the `HttpServer::new` method, which takes a closure that creates the Actix App.
+/// The Actix App is created with the `App::new` method, which takes the sorting and path endpoints.
+/// The sorting and path endpoints are created with the `route` method, which takes the endpoint path and handler function.
+/// The handler functions are the `sort_handler` and `path_handler` functions.
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
     HttpServer::new(|| {
