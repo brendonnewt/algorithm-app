@@ -1,23 +1,26 @@
 use super::super::structs::{Cycle, SortingInput, SortingOutput, Step};
 
-/***
- * Bubble Sort
- *
- * Bubble sort is a simple sorting algorithm that repeatedly steps through the list, compares adjacent elements and swaps them if they are in the wrong order.
- * The pass through the list is repeated until the list is sorted.
- *
- * Time Complexity:
- * - Best: O(n)
- * - Average: O(n^2)
- * - Worst: O(n^2)
- *
- * Space Complexity: O(1)
- *
- * Stable: Yes
- *
- * @param input: SortingInput
- * @returns SortingOutput
- */
+/// Bubble Sort
+///
+/// Bubble sort is a simple sorting algorithm that repeatedly steps through the list, compares adjacent elements and swaps them if they are in the wrong order.
+/// The pass through the list is repeated until the list is sorted.
+///
+/// Time Complexity:
+/// - Best: O(n)
+/// - Average: O(n^2)
+/// - Worst: O(n^2)
+///
+/// Space Complexity: O(1)
+///
+/// Stable: Yes
+///
+/// # Arguments
+///
+/// * `input` - A SortingInput object that contains the array to be sorted
+///
+/// # Returns
+///
+/// * A SortingOutput object that contains the sorted array and other information
 pub fn bubble_sort(input: SortingInput) -> SortingOutput {
     // Initialize variables
     let mut arr = input.arr;
@@ -73,24 +76,27 @@ pub fn bubble_sort(input: SortingInput) -> SortingOutput {
     }
 }
 
-/***
- * Insertion Sort
- *
- * Insertion sort is a simple sorting algorithm that builds the final sorted array one item at a time.
- * It is much less efficient on large lists than more advanced algorithms such as quicksort, heapsort, or merge sort.
- *
- * Time Complexity:
- * - Best: O(n)
- * - Average: O(n^2)
- * - Worst: O(n^2)
- *
- * Space Complexity: O(1)
- *
- * Stable: Yes
- *
- * @param input: SortingInput
- * @returns SortingOutput
- */
+/// Insertion Sort
+///
+/// Insertion sort is a simple sorting algorithm that builds the final sorted array one item at a time.
+/// It is much less efficient on large lists than more advanced algorithms such as quicksort, heapsort, or merge sort.
+///
+/// Time Complexity:
+/// - Best: O(n)
+/// - Average: O(n^2)
+/// - Worst: O(n^2)
+///
+/// Space Complexity: O(1)
+///
+/// Stable: Yes
+///
+/// # Arguments
+///
+/// * `input` - A SortingInput object that contains the array to be sorted
+///
+/// # Returns
+///
+/// * A SortingOutput object that contains the sorted array and other information
 pub fn insertion_sort(input: SortingInput) -> SortingOutput {
     // Initialize variables
     let mut arr = input.arr;
