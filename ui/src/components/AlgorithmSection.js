@@ -21,7 +21,7 @@ import '../assets/styles/AlgorithmSection.css';
 
 const AlgorithmSection = ({cycles, currentCycle, currentStep, nextStep, prevStep, stepString,
     setCurrentCycle, setCurrentStep, setCycles, setIsInputting, isInputting, inputArr, outputArr,
-    setOutputArr, compared, result
+    setOutputArr, compared, setCompared, result
 }) => {
     return (
         <div className="algorithmSection">
@@ -41,6 +41,7 @@ const AlgorithmSection = ({cycles, currentCycle, currentStep, nextStep, prevStep
             prevStep={prevStep}
             stepString={stepString}
             compared={compared}
+            setCompared={setCompared}
             result={result}
             />
         </div>
