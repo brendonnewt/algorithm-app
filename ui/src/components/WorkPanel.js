@@ -26,13 +26,15 @@ import '../assets/styles/WorkPanel.css';
  * - setCompared: A function to set the compared indices
  * - result: The result of the sorting algorithm
  * - done: A boolean to determine if the algorithm is done
+ * - setDone: A function to set the done boolean
  * 
  * The component returns a div element containing the WorkFooter component.
  */
 
 const WorkPanel = ({cycles, currentCycle, currentStep, nextStep, prevStep,
     setCurrentCycle, setCurrentStep, setCycles, setIsInputting, isInputting, 
-    inputArr, outputArr, setOutputArr, compared, setCompared, stepString, result, done
+    inputArr, outputArr, setOutputArr, compared, setCompared, stepString, result,
+    done, setDone
 }) => {
     return (
         <div className="workPanel">
@@ -57,7 +59,10 @@ const WorkPanel = ({cycles, currentCycle, currentStep, nextStep, prevStep,
             isInputting={isInputting}
             inputArr={inputArr}
             setOutputArr={setOutputArr}
-            setCompared={setCompared}/>
+            setCompared={setCompared}
+            setDone={setDone}
+            />
+            
         </div>
     );
 }

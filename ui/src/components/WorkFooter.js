@@ -13,11 +13,13 @@ import '../assets/styles/WorkFooter.css';
  * - setIsInputting: A function to set the isInputting state
  * - inputArr: The input array
  * - setOutputArr: A function to set the output array
+ * - setCompared: A function to set the compared state
+ * - setDone: A function to set the done state
  * 
  * The component returns a footer element containing a restart button and a reset button.
  */
 
-const WorkFooter = ({setCurrentCycle, setCurrentStep, setCycles, isInputting, setIsInputting, inputArr, setOutputArr, setCompared}) => {
+const WorkFooter = ({setCurrentCycle, setCurrentStep, setCycles, isInputting, setIsInputting, inputArr, setOutputArr, setCompared, setDone}) => {
     
     /**
      * @function restart
@@ -31,6 +33,7 @@ const WorkFooter = ({setCurrentCycle, setCurrentStep, setCycles, isInputting, se
         setCurrentStep(-1);
         setOutputArr([...inputArr]);
         setCompared([]);
+        setDone(false);
     }
     return (
         <footer className={`workFooter ${isInputting ? '' : 'show'}`}>

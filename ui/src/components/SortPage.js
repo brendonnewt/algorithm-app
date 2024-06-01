@@ -195,6 +195,7 @@ const SortPage = ({stepString, sort}) => {
                 stepString={stepString}
                 result={result}
                 done={done}
+                setDone={setDone}
             />
         </div>
     );

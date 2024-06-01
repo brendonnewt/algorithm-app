@@ -27,13 +27,14 @@ import '../assets/styles/AlgorithmSection.css';
  * - setCompared: A function to set the compared indices
  * - result: The result of the sorting algorithm
  * - done: A boolean to determine if the algorithm is done
+ * - setDone: A function to set the done boolean
  * 
  * The component returns a div element containing the StepPanel and WorkPanel components.
  */
 
 const AlgorithmSection = ({cycles, currentCycle, currentStep, nextStep, prevStep, stepString,
     setCurrentCycle, setCurrentStep, setCycles, setIsInputting, isInputting, inputArr, outputArr,
-    setOutputArr, compared, setCompared, result, done
+    setOutputArr, compared, setCompared, result, done, setDone
 }) => {
     return (
         <div className="algorithmSection">
@@ -59,6 +60,7 @@ const AlgorithmSection = ({cycles, currentCycle, currentStep, nextStep, prevStep
             setCompared={setCompared}
             result={result}
             done={done}
+            setDone={setDone}
             />
         </div>
     );
