@@ -77,11 +77,11 @@ const GetArrayInput = ({inputArr, setInputArr, fetchCycles, setIsInputting, isIn
 
     return (
         <form onSubmit={onSubmit} className={`getInput ${isInputting ? 'show' : ''}`}>
-            <label>To add an element, enter an integer and sumbit. When you are
-                finished, click done. If you wish to remove an element, click back</label>
+            <label style={{textAlign: 'center', fontSize: '20px'}}>To add an element, enter an integer and click submit. When you are
+                finished, click done. If you want to remove an element, click the back button</label>
             <br /><br />
             <label>{errorString}</label>
-            <p>Array:</p>
+            <p style={{fontSize: '20px', textAlign: 'center'}}>Array:</p>
             <ul className='arr'>
                 {/* Maps over the input array and creates a list element for each element */}
                 {inputArr.map((element, index) => {
