@@ -14,7 +14,7 @@ function Main() {
 
   switch (location.pathname) {
     case '/':
-      headerText = 'CSI 3344 Crash Course';
+      headerText = 'Sorting Algorithm Visualizer';
       break;
       case '/sorting/bubblesort':
         headerText = 'Bubble Sort';
@@ -23,7 +23,7 @@ function Main() {
         headerText = 'Insertion Sort';
         break;
       case '/sorting/selectionsort':
-        headerText = 'TODO: Selection Sort';
+        headerText = 'Selection Sort';
         break;
       case '/sorting/mergesort':
         headerText = 'TODO: Merge Sort';

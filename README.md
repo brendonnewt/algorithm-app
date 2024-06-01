@@ -13,7 +13,7 @@ The plan is to implement many popular algorithms and eventually provide a UI tha
 To view the full documentation for this project, including **time complexities** and other helpful notes about the algorithms:
 
 1) Clone or fork this project
-2) Run the command `cargo doc --open`
+2) Run the command `cargo doc --open` in the api directory
 
 ### Note: This was developed on Mac OS
 
@@ -26,8 +26,8 @@ The following resources were used for studying the algorithms and providing note
 - **[Programiz](https://www.programiz.com)**: A comprehensive resource for learning programming concepts and algorithms.
 
 ## Running the API in Docker
+
 ```bash
 cd api
 docker-compose up --build
 ```
-
