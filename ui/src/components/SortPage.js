@@ -19,7 +19,7 @@ import React, { useState, useEffect, useRef } from "react";
 import AlgorithmPanel from "./AlgorithmPanel";
 import AlgorithmSection from "./AlgorithmSection";
 
-const SortPage = ({stepString, sort, performStep}) => {
+const SortPage = ({stepString, sort}) => {
     const [cycles, setCycles] = useState([]);   //  Passed up from AlgorithmPanel
     const [currentCycle, setCurrentCycle] = useState(0);    // Tracks the current cycle
     const [currentStep, setCurrentStep] = useState(-1);  // Tracks the current step
@@ -30,6 +30,36 @@ const SortPage = ({stepString, sort, performStep}) => {
     const [compared, setCompared] = useState([]); // Tracks the indexes of the elements being compared
     const [result, setResult] = useState(false); // Tracks the result of the algorithm
     const [done, setDone] = useState(false); // Tracks if the algorithm is done
+
+    /**
+     * @function performStep
+     * @description Performs the step by swapping the elements in the output array
+     * @param {*} step
+     * 
+     * @returns {void}
+     */
+    const performStep = (step, outputArr, setOutputArr, setCompared, setResult) => {
+        // If the step is a swap step, swap the elements in the output array
+        if (!step) return;
+        
+        // Get the indices of the elements being compared
+        const [index1, index2] = step.compared[0];
+        setCompared([index1, index2]);
+        
+        // If the step is a swap step, swap the elements in the output array
+        if (step.swapped) {
+            setResult(true);
+            const newOutputArr = [...outputArr];
+            [newOutputArr[index1], newOutputArr[index2]] = [
+                newOutputArr[index2],
+                newOutputArr[index1],
+            ];
+            setOutputArr(newOutputArr);
+        } else {
+            setResult(false);
+        }
+    };
+
     /**
      * @function nextStep
      * @description Increments the current step, if the current step is the last step in the cycle, it increments the current cycle

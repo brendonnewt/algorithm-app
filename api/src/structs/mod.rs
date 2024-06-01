@@ -53,6 +53,7 @@ pub struct PathOutput {
 pub enum SortType {
     BubbleSort,
     InsertionSort,
+    SelectionSort,
 }
 
 /// Implementation of the SortType enum
@@ -64,8 +65,9 @@ impl SortType {
     /// * `Option<SortType>` - The SortType enum variant, or None if the string does not match any variant
     pub fn as_type(string: &str) -> Option<SortType> {
         match string {
-            "BubbleSort" => Some(SortType::BubbleSort),
-            "InsertionSort" => Some(SortType::InsertionSort),
+            "bubble" => Some(SortType::BubbleSort),
+            "insertion" => Some(SortType::InsertionSort),
+            "selection" => Some(SortType::SelectionSort),
             _ => None,
         }
     }

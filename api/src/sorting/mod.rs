@@ -3,7 +3,7 @@ mod implementations;
 
 use super::structs::{SortType, SortingInput, SortingOutput};
 use actix_web::HttpResponse;
-use implementations::{bubble_sort, insertion_sort};
+use implementations::{bubble_sort, insertion_sort, selection_sort};
 
 /// Get the output of the sorting algorithm
 ///
@@ -20,6 +20,7 @@ pub fn get_output(input: SortingInput) -> Result<SortingOutput, HttpResponse> {
     match sort {
         Some(SortType::BubbleSort) => Ok(bubble_sort(input)),
         Some(SortType::InsertionSort) => Ok(insertion_sort(input)),
+        Some(SortType::SelectionSort) => Ok(selection_sort(input)),
 
         None => Err(HttpResponse::BadRequest().json("")),
     }

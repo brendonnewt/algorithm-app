@@ -37,6 +37,8 @@ const DropMenu = ({isOpen}) => {
                         <li><a href="/sorting/selectionsort">Selection Sort</a></li>
                         <li><a href="/sorting/insertionsort">Insertion Sort</a></li>
                         <li><a href="/sorting/quicksort">Quick Sort</a></li>
+                        <li><a href="/sorting/mergesort">Merge Sort</a></li>
+                        <li><a href="/sorting/heapsort">Heap Sort</a></li>
                     </ul>
                 </li>
                 <li>

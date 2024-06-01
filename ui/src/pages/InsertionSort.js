@@ -1,44 +1,26 @@
+/**
+ * @file InsertionSort.js is the page for the Insertion Sort algorithm.
+ * 
+ * The InsertionSort component returns a div element containing the SortPage component.
+ * 
+ * InsertionSort passes in the stepString and sort props to the SortPage component.
+ * 
+ * The stepString function describes the step for the algorithm.
+ * The sort prop is the sorting algorithm.
+ * 
+ * The component returns a div element containing the SortPage component.
+ */
 import React from 'react';
 import SortPage from '../components/SortPage';
 import '../assets/styles/MainPanel.css';
 
 const InsertionSort = () => {
     const stepString = (i, j, result) => `Compare ${i} and ${j}. ${result ? "Swap them" : "Do not swap them"}`;
-    const sort = "InsertionSort";
-
-    /**
-     * @function performStep
-     * @description Performs the step by swapping the elements in the output array
-     * @param {*} step
-     * 
-     * @returns {void}
-     */
-    const performStep = (step, outputArr, setOutputArr, setCompared, setResult) => {
-        // If the step is a swap step, swap the elements in the output array
-        if (!step) return;
-        
-        // Get the indices of the elements being compared
-        const [index1, index2] = step.compared[0];
-        console.log(step.compared[0])
-        setCompared([index1, index2]);
-        
-        // If the step is a swap step, swap the elements in the output array
-        if (step.swapped) {
-            setResult(true);
-            const newOutputArr = [...outputArr];
-            [newOutputArr[index1], newOutputArr[index2]] = [
-                newOutputArr[index2],
-                newOutputArr[index1],
-            ];
-            setOutputArr(newOutputArr);
-        } else {
-            setResult(false);
-        }
-    };
+    const sort = "insertion";
 
     return (
         <div className="mainPanel">
-            <SortPage stepString={stepString} sort={sort} performStep={performStep}/>
+            <SortPage stepString={stepString} sort={sort}/>
         </div>
     );
 }
