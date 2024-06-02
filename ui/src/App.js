@@ -4,6 +4,7 @@ import HomePage from './pages/HomePage';
 import BubbleSort from './pages/BubbleSort';
 import InsertionSort from './pages/InsertionSort';
 import SelectionSort from './pages/SelectionSort';
+import QuickSort from './pages/QuickSort';
 import './assets/styles/App.css';
 import Header from './components/Header';
 import Nav from './components/Nav';
@@ -54,6 +55,7 @@ function Main() {
         <Route path="/sorting/bubblesort" element={<BubbleSort />} />
         <Route path="/sorting/insertionsort" element={<InsertionSort />} />
         <Route path="/sorting/selectionsort" element={<SelectionSort />} />
+        <Route path="/sorting/quicksort" element={<QuickSort />} />
         {/* Add more routes as needed for other pages */}
       </Routes>
     </div>

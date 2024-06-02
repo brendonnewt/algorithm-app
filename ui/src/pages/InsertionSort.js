@@ -1,3 +1,7 @@
+import React from 'react';
+import SortPage from '../components/SortPage';
+import '../assets/styles/MainPanel.css';
+
 /**
  * @file InsertionSort.js is the page for the Insertion Sort algorithm.
  * 
@@ -10,9 +14,6 @@
  * 
  * The component returns a div element containing the SortPage component.
  */
-import React from 'react';
-import SortPage from '../components/SortPage';
-import '../assets/styles/MainPanel.css';
 
 const InsertionSort = () => {
     const stepString = (i, j, result) => `Compare ${i} and ${j}. ${result ? "Swap them" : "Do not swap them"}`;
