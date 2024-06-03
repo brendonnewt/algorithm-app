@@ -16,7 +16,7 @@ import '../assets/styles/MainPanel.css';
  */
 
 const InsertionSort = () => {
-    const stepString = (i, j, result) => `Compare ${i} and ${j}. ${result ? "Swap them" : "Do not swap them"}`;
+    const stepString = (i, j, result) => `${result ? `Swap ${i} with the element to the left until it's in the correct spot` : `${i} is in the correct spot`}`;
     const sort = "insertion";
 
     return (

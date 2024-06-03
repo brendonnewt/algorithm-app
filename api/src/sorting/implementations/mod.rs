@@ -41,14 +41,14 @@ pub fn bubble_sort(input: SortingInput) -> SortingOutput {
                 // Add the step to the cycle
                 steps.push(Step {
                     swapped: true,
-                    compared: vec![(j, j + 1)],
+                    compared: vec![j, j + 1],
                 });
             // If the element is not greater than the next element, do not swap them
             } else {
                 // Add the step to the cycle
                 steps.push(Step {
                     swapped: false,
-                    compared: vec![(j, j + 1)],
+                    compared: vec![j, j + 1],
                 });
             }
         }
@@ -116,7 +116,7 @@ pub fn insertion_sort(input: SortingInput) -> SortingOutput {
             // Add the step to the cycle
             steps.push(Step {
                 swapped: true,
-                compared: vec![(j as usize, j as usize + 1)],
+                compared: vec![j as usize, j as usize + 1],
             });
             // Move to the next element
             j = j - 1;
@@ -127,7 +127,7 @@ pub fn insertion_sort(input: SortingInput) -> SortingOutput {
             // Add the step to the cycle
             steps.push(Step {
                 swapped: false,
-                compared: vec![(j as usize, i)],
+                compared: vec![j as usize, i],
             });
         }
 
@@ -185,7 +185,7 @@ pub fn selection_sort(input: SortingInput) -> SortingOutput {
 
         steps.push(Step {
             swapped: false,
-            compared: vec![(i, min_index)],
+            compared: vec![i, min_index],
         });
 
         // Find the minimum element in the unsorted part of the array
@@ -195,7 +195,7 @@ pub fn selection_sort(input: SortingInput) -> SortingOutput {
             }
             steps.push(Step {
                 swapped: false,
-                compared: vec![(j, min_index)],
+                compared: vec![j, min_index],
             });
         }
 
@@ -207,7 +207,7 @@ pub fn selection_sort(input: SortingInput) -> SortingOutput {
         // Add the step to the cycle
         steps.push(Step {
             swapped: true,
-            compared: vec![(i, min_index)],
+            compared: vec![i, min_index],
         });
 
         // Add cycle to cycles
@@ -248,7 +248,7 @@ mod tests {
                 .first()
                 .unwrap()
                 .compared,
-            vec![(0, 1)]
+            vec![0, 1]
         );
         assert_eq!(
             output
@@ -265,7 +265,7 @@ mod tests {
         // Tests a step in the second cycle
         assert_eq!(
             output.cycles.get(1).unwrap().cycle.get(1).unwrap().compared,
-            vec![(1, 2)]
+            vec![1, 2]
         );
         assert_eq!(
             output.cycles.get(1).unwrap().cycle.get(1).unwrap().swapped,
@@ -275,7 +275,7 @@ mod tests {
         // Tests that last step is correct
         assert_eq!(
             output.cycles.last().unwrap().cycle.last().unwrap().compared,
-            vec![(0, 1)]
+            vec![0, 1]
         );
         assert_eq!(
             output.cycles.last().unwrap().cycle.last().unwrap().swapped,
@@ -302,7 +302,7 @@ mod tests {
                 .first()
                 .unwrap()
                 .compared,
-            vec![(0, 1)]
+            vec![0, 1]
         );
         assert_eq!(
             output
@@ -339,7 +339,7 @@ mod tests {
                 .first()
                 .unwrap()
                 .compared,
-            vec![(0, 1)]
+            vec![0, 1]
         );
         assert_eq!(
             output
@@ -356,7 +356,7 @@ mod tests {
         // Tests a step in the second cycle
         assert_eq!(
             output.cycles.get(1).unwrap().cycle.get(1).unwrap().compared,
-            vec![(1, 2)]
+            vec![1, 2]
         );
         assert_eq!(
             output.cycles.get(1).unwrap().cycle.get(1).unwrap().swapped,
@@ -366,7 +366,7 @@ mod tests {
         // Tests that last step is correct
         assert_eq!(
             output.cycles.last().unwrap().cycle.last().unwrap().compared,
-            vec![(0, 1)]
+            vec![0, 1]
         );
         assert_eq!(
             output.cycles.last().unwrap().cycle.last().unwrap().swapped,
@@ -406,7 +406,7 @@ mod tests {
                 .first()
                 .unwrap()
                 .compared,
-            vec![(0, 1)]
+            vec![0, 1]
         );
         assert_eq!(
             output
@@ -430,7 +430,7 @@ mod tests {
                 .first()
                 .unwrap()
                 .compared,
-            vec![(1, 2)]
+            vec![1, 2]
         );
         assert_eq!(
             output.cycles.get(1).unwrap().cycle.first().unwrap().swapped,
@@ -440,7 +440,7 @@ mod tests {
         // Tests that last step is correct
         assert_eq!(
             output.cycles.last().unwrap().cycle.last().unwrap().compared,
-            vec![(0, 1)]
+            vec![0, 1]
         );
         assert_eq!(
             output.cycles.last().unwrap().cycle.last().unwrap().swapped,
@@ -467,7 +467,7 @@ mod tests {
                 .first()
                 .unwrap()
                 .compared,
-            vec![(0, 1)]
+            vec![0, 1]
         );
         assert_eq!(
             output
@@ -504,7 +504,7 @@ mod tests {
                 .first()
                 .unwrap()
                 .compared,
-            vec![(0, 1)]
+            vec![0, 1]
         );
         assert_eq!(
             output
@@ -521,7 +521,7 @@ mod tests {
         // Tests a step in the middle
         assert_eq!(
             output.cycles.get(1).unwrap().cycle.get(1).unwrap().compared,
-            vec![(0, 1)]
+            vec![0, 1]
         );
         assert_eq!(
             output.cycles.get(1).unwrap().cycle.get(1).unwrap().swapped,
@@ -531,7 +531,7 @@ mod tests {
         // Tests that last step is correct
         assert_eq!(
             output.cycles.last().unwrap().cycle.last().unwrap().compared,
-            vec![(0, 1)]
+            vec![0, 1]
         );
         assert_eq!(
             output.cycles.last().unwrap().cycle.last().unwrap().swapped,
@@ -571,7 +571,7 @@ mod tests {
                 .last()
                 .unwrap()
                 .compared,
-            vec![(0, 4)]
+            vec![0, 4]
         );
         assert_eq!(
             output.cycles.first().unwrap().cycle.last().unwrap().swapped,
@@ -581,7 +581,7 @@ mod tests {
         // Tests a step in the middle
         assert_eq!(
             output.cycles.get(1).unwrap().cycle.last().unwrap().compared,
-            vec![(1, 1)]
+            vec![1, 1]
         );
         assert_eq!(
             output.cycles.get(1).unwrap().cycle.last().unwrap().swapped,
@@ -591,7 +591,7 @@ mod tests {
         // Tests that last step is correct
         assert_eq!(
             output.cycles.last().unwrap().cycle.last().unwrap().compared,
-            vec![(4, 4)]
+            vec![4, 4]
         );
         assert_eq!(
             output.cycles.last().unwrap().cycle.last().unwrap().swapped,
@@ -618,7 +618,7 @@ mod tests {
                 .last()
                 .unwrap()
                 .compared,
-            vec![(0, 0)]
+            vec![0, 0]
         );
         assert_eq!(
             output.cycles.first().unwrap().cycle.last().unwrap().swapped,
@@ -648,7 +648,7 @@ mod tests {
                 .last()
                 .unwrap()
                 .compared,
-            vec![(0, 4)]
+            vec![0, 4]
         );
         assert_eq!(
             output.cycles.first().unwrap().cycle.last().unwrap().swapped,
@@ -658,7 +658,7 @@ mod tests {
         // Tests a step in the middle
         assert_eq!(
             output.cycles.get(1).unwrap().cycle.last().unwrap().compared,
-            vec![(1, 3)]
+            vec![1, 3]
         );
         assert_eq!(
             output.cycles.get(1).unwrap().cycle.last().unwrap().swapped,
@@ -668,7 +668,7 @@ mod tests {
         // Tests that last step is correct
         assert_eq!(
             output.cycles.last().unwrap().cycle.last().unwrap().compared,
-            vec![(4, 4)]
+            vec![4, 4]
         );
         assert_eq!(
             output.cycles.last().unwrap().cycle.last().unwrap().swapped,

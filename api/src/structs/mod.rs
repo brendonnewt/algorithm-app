@@ -96,5 +96,5 @@ pub struct Cycle {
 /// * The swapped field is a boolean value that indicates whether elements were swapped in the step.
 pub struct Step {
     pub swapped: bool,
-    pub compared: Vec<(usize, usize)>,
+    pub compared: Vec<usize>,
 }
