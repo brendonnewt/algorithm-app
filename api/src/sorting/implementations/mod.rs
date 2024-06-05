@@ -226,6 +226,102 @@ pub fn selection_sort(input: SortingInput) -> SortingOutput {
     }
 }
 
+pub fn quicksort(input: SortingInput) -> SortingOutput {
+    let mut arr = input.arr;
+    let mut cycles: Vec<Cycle> = Vec::new();
+    let n = arr.len();
+
+    // If the array is empty or has one element, return with an empty cycle
+    if n <= 1 {
+        cycles.push(Cycle { cycle: Vec::new() });
+        return SortingOutput {
+            sort: "Quicksort".to_string(),
+            cycles: cycles,
+        };
+    }
+
+    _quicksort(&mut arr, 0, n as i32 - 1, &mut cycles);
+
+    SortingOutput {
+        sort: "Quicksort".to_string(),
+        cycles: cycles,
+    }
+}
+
+pub fn _quicksort(arr: &mut [i32], left: i32, right: i32, cycles: &mut Vec<Cycle>) {
+    // Validate bounds
+    if left < 0 || right < 0 {
+        return;
+    }
+
+    // Set the indices to usize
+    let left = left as usize;
+    let right = right as usize;
+
+    // If array is size 1 or smaller, return
+    if left >= right {
+        return;
+    }
+
+    // Partition the array, getting the middle point
+    let p = partition(arr, left, right, cycles);
+    // Sort the left
+    _quicksort(arr, left as i32, p as i32 - 1, cycles);
+    // Sort the right
+    _quicksort(arr, p as i32 + 1, right as i32, cycles);
+}
+
+fn partition(arr: &mut [i32], left: usize, right: usize, cycles: &mut Vec<Cycle>) -> usize {
+    // Initialize variables
+    let mut steps: Vec<Step> = Vec::new();
+
+    // Get the pivot using the Lomuto Scheme
+    let pivot = arr[right];
+    // Add the pivot selection to the cycle
+    steps.push(Step {
+        swapped: false,
+        compared: vec![right, right],
+    });
+
+    // Set the pivot pointer at the beginning
+    let mut i = left;
+
+    // Traverse the array linearly
+    for j in left..right {
+        // If the element is greater than the pivot, swap
+        if arr[j] < pivot {
+            // Add the swap to the cycle
+            steps.push(Step {
+                swapped: true,
+                compared: vec![i, j],
+            });
+            arr.swap(i, j);
+            // Move the pivots pointer up one
+            i += 1;
+        } else {
+            // Add the comparison to the cycle
+            steps.push(Step {
+                swapped: false,
+                compared: vec![j, right],
+            });
+        }
+    }
+    // Place the pivot at its pointer
+    arr.swap(i, right);
+
+    // Add the pivot placement to the cycle
+    steps.push(Step {
+        swapped: true,
+        compared: vec![i, right],
+    });
+
+    // Add the cycle to the cycles
+    cycles.push(Cycle { cycle: steps });
+
+    // Return the pivot position
+    i
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -688,5 +784,63 @@ mod tests {
         // Tests that there is only one cycle
         assert_eq!(output.cycles.len(), 1);
         assert_eq!(output.sort, "Selection".to_string());
+    }
+
+    #[test]
+    fn test_quicksort() {
+        let input = SortingInput {
+            sort: "quick".to_string(),
+            arr: vec![5, 3, 8, 4, 2],
+        };
+
+        // Tests that the output sort is correct
+        let output = quicksort(input);
+        assert_eq!(output.sort, "Quicksort".to_string());
+
+        // Tests that the output cycles are correct
+        let cycles = output.cycles;
+        assert_eq!(cycles.len(), 3);
+        assert_eq!(cycles[0].cycle.len(), 6);
+
+        // Tests that the first cycle is correct
+        assert_eq!(cycles[0].cycle[5].compared, vec![0, 4]);
+        assert_eq!(cycles[0].cycle[5].swapped, true);
+
+        // Tests that the second cycle is correct
+        assert_eq!(cycles[1].cycle[4].compared, vec![3, 4]);
+        assert_eq!(cycles[1].cycle[4].swapped, true);
+
+        // Tests that the last cycle is correct
+        assert_eq!(cycles[2].cycle[2].compared, vec![2, 2]);
+        assert_eq!(cycles[2].cycle[2].swapped, true);
+    }
+
+    #[test]
+    fn test_quicksort_single_element() {
+        let input = SortingInput {
+            sort: "quick".to_string(),
+            arr: vec![1],
+        };
+        let output = quicksort(input);
+
+        // Tests that there is only one cycle
+        assert_eq!(output.cycles.len(), 1);
+        assert_eq!(output.sort, "Quicksort".to_string());
+        assert!(output.cycles[0].cycle.is_empty());
+    }
+
+    #[test]
+    fn test_quicksort_already_sorted() {
+        let input = SortingInput {
+            sort: "quick".to_string(),
+            arr: vec![1, 2, 3, 4, 5],
+        };
+        let output = quicksort(input);
+
+        // Tests that all cycles are run
+        assert_eq!(output.cycles.len(), 4);
+        assert_eq!(output.sort, "Quicksort".to_string());
+
+        assert_eq!(output.cycles[0].cycle.len(), 6);
     }
 }

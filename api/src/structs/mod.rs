@@ -54,6 +54,7 @@ pub enum SortType {
     BubbleSort,
     InsertionSort,
     SelectionSort,
+    QuickSort,
 }
 
 /// Implementation of the SortType enum
@@ -68,6 +69,7 @@ impl SortType {
             "bubble" => Some(SortType::BubbleSort),
             "insertion" => Some(SortType::InsertionSort),
             "selection" => Some(SortType::SelectionSort),
+            "quick" => Some(SortType::QuickSort),
             _ => None,
         }
     }

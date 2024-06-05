@@ -43,7 +43,7 @@ const SortPage = ({stepString, sort}) => {
         if (!step) return;
         
         // Get the indices of the elements being compared
-        const [index1, index2] = step.compared[0];
+        const [index1, index2] = step.compared;
         setCompared([index1, index2]);
         
         // If the step is a swap step, swap the elements in the output array
