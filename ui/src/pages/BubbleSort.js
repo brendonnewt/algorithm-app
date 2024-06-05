@@ -15,10 +15,11 @@ import '../assets/styles/MainPanel.css';
 const BubbleSort = () => {
     const stepString = (i, j, result) => `Compare ${i} and ${j}. ${result ? "Swap them" : "Do not swap them"}`;
     const sort = "bubble";
+    const useIndicesForString = false;
 
     return (
         <div className="mainPanel">
-            <SortPage stepString={stepString} sort={sort}/>
+            <SortPage stepString={stepString} sort={sort} useIndicesForString={useIndicesForString}/>
         </div>
     );
 }

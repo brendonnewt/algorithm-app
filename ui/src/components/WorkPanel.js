@@ -34,18 +34,32 @@ import '../assets/styles/WorkPanel.css';
 const WorkPanel = ({cycles, currentCycle, currentStep, nextStep, prevStep,
     setCurrentCycle, setCurrentStep, setCycles, setIsInputting, isInputting, 
     inputArr, outputArr, setOutputArr, compared, setCompared, stepString, result,
-    done, setDone
+    done, setDone, useIndicesForString
 }) => {
+    const getString = (i, j, result, useIndicesForString) => {
+        // If the algorithm is done, display the done message
+        if (done) {
+            return "The algorithm is done. Click prev to see the steps again.";
+        }
+
+        // If the compared array is empty, display the initial message
+        if (compared.length <= 0) {
+            return "Comparisons will be shown here as the algorithm progresses. Click next to begin.";
+        }
+
+        // If the useIndicesForString is true, use the indices for the step string
+        if (useIndicesForString) {
+            return stepString(i, j, result);
+        // Otherwise, use the values for the step string
+        } else {
+            return stepString(outputArr[compared[0]], outputArr[compared[1]], result);
+        }
+    }
     return (
         <div className="workPanel">
             {isInputting ? '' :
             <p>
-                {
-                    done ? 'The algorithm is done. Click prev to see the steps again.' :
-                    compared.length > 0 ? stepString(outputArr[compared[0]], outputArr[compared[1]], result) :
-                    'Comparisons will be shown here as the algorithm progresses. Click next to begin.'
-                }
-                
+                {getString(currentCycle, currentStep, result, useIndicesForString)}
             </p>}
             <WorkFooter prevStep={prevStep} 
             nextStep={nextStep}

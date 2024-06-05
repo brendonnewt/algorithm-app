@@ -16,10 +16,11 @@ const SelectionSort = () => {
         i === j ? "Element is already in the correct position" : "Place the smallest element found in the correct position" 
         : "Search for the smallest element in the unsorted section of the array"}.`;
     let sort = "selection";
+    let useIndicesForString = false;
 
     return (
         <div className="mainPanel">
-            <SortPage stepString={stepString} sort={sort}/>
+            <SortPage stepString={stepString} sort={sort} useIndicesForString={useIndicesForString}/>
         </div>
     );
 }

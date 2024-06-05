@@ -19,7 +19,7 @@ import React, { useState, useEffect, useRef } from "react";
 import AlgorithmPanel from "./AlgorithmPanel";
 import AlgorithmSection from "./AlgorithmSection";
 
-const SortPage = ({stepString, sort}) => {
+const SortPage = ({stepString, sort, useIndicesForString}) => {
     const [cycles, setCycles] = useState([]);   //  Passed up from AlgorithmPanel
     const [currentCycle, setCurrentCycle] = useState(0);    // Tracks the current cycle
     const [currentStep, setCurrentStep] = useState(-1);  // Tracks the current step
@@ -115,7 +115,7 @@ const SortPage = ({stepString, sort}) => {
             setCurrentStep(currentStep - 1);
             if (cycles[currentCycle].cycle[currentStep] !== undefined) {
                 // Set the step description to the prev step
-                const [index1, index2] = cycles[currentCycle].cycle[currentStep].compared[0];
+                const [index1, index2] = cycles[currentCycle].cycle[currentStep].compared;
                 setResult(cycles[currentCycle].cycle[currentStep].swapped);
                 setCompared([index1, index2]);
                 setResult(cycles[currentCycle].cycle[currentStep].swapped);
@@ -128,7 +128,7 @@ const SortPage = ({stepString, sort}) => {
             setCurrentStep(cycles[currentCycle - 1].cycle.length - 1);
             if (cycles[currentCycle].cycle[currentStep] !== undefined) {
                 // Set the step description to the prev step
-                const [index1, index2] = cycles[currentCycle].cycle[currentStep].compared[0];
+                const [index1, index2] = cycles[currentCycle].cycle[currentStep].compared;
                 setCompared([index1, index2]);
                 setResult(cycles[currentCycle].cycle[currentStep].swapped);
             }
@@ -196,6 +196,7 @@ const SortPage = ({stepString, sort}) => {
                 result={result}
                 done={done}
                 setDone={setDone}
+                useIndicesForString={useIndicesForString}
             />
         </div>
     );

@@ -312,7 +312,7 @@ fn partition(arr: &mut [i32], left: usize, right: usize, cycles: &mut Vec<Cycle>
     // Add the pivot placement to the cycle
     steps.push(Step {
         swapped: true,
-        compared: vec![i, right],
+        compared: vec![right, i],
     });
 
     // Add the cycle to the cycles
@@ -803,11 +803,11 @@ mod tests {
         assert_eq!(cycles[0].cycle.len(), 6);
 
         // Tests that the first cycle is correct
-        assert_eq!(cycles[0].cycle[5].compared, vec![0, 4]);
+        assert_eq!(cycles[0].cycle[5].compared, vec![4, 0]);
         assert_eq!(cycles[0].cycle[5].swapped, true);
 
         // Tests that the second cycle is correct
-        assert_eq!(cycles[1].cycle[4].compared, vec![3, 4]);
+        assert_eq!(cycles[1].cycle[4].compared, vec![4, 3]);
         assert_eq!(cycles[1].cycle[4].swapped, true);
 
         // Tests that the last cycle is correct

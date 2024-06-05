@@ -18,10 +18,11 @@ import '../assets/styles/MainPanel.css';
 const InsertionSort = () => {
     const stepString = (i, j, result) => `${result ? `Swap ${i} with the element to the left until it's in the correct spot` : `${i} is in the correct spot`}`;
     const sort = "insertion";
+    const useIndicesForString = false;
 
     return (
         <div className="mainPanel">
-            <SortPage stepString={stepString} sort={sort}/>
+            <SortPage stepString={stepString} sort={sort} useIndicesForString={useIndicesForString}/>
         </div>
     );
 }
