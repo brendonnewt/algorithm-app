@@ -50,10 +50,11 @@ async fn main() -> std::io::Result<()> {
         let cors = Cors::permissive();
         App::new()
             .wrap(cors)
+            .route("/", web::get().to(|| async { "Online" }))
             .route("/api/algorithm/sort", web::post().to(sort_handler))
             .route("/api/algorithm/path", web::post().to(path_handler))
     })
-    .bind("localhost:8080")?
+    .bind("0.0.0.0:8080")?
     .run()
     .await
 }
